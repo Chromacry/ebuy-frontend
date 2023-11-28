@@ -1,0 +1,90 @@
+
+  $CallToAction: rgb(112, 181, 255);
+  $CallToAction2: rgb(255, 0, 0);
+  $CallToActionHover: rgb(69, 93, 159);
+  $CallToActionHover2:rgb(179, 0, 0);
+
+  $LightThemeBG: rgb(255, 255, 255);
+  $LightThemeNav: rgb(255, 255, 255,0.5);
+  $LightPrimary: rgb(0, 0, 0);
+  $LightPrimary2: rgb(78, 78, 78);
+  $LightSecondary: rgb(235, 235, 235);
+  $LightSecondary2: rgb(211, 211, 211);
+  $LightPrimary3: rgb(111, 111, 111);
+
+  $DarkThemeBG: rgb(0, 0, 0);
+  $DarkThemeNav: rgba(0, 0, 0, 0.5);
+  $DarkPrimary: rgb(255, 255, 255);
+  $DarkPrimary2: rgb(167, 167, 167);
+  $DarkSecondary: rgb(34, 34, 34);
+  $DarkSecondary2: rgb(77, 77, 77);
+
+  $DarkPrimary3: rgb(162, 162, 162);
+
+  $accent-color: #e74c3c;
+
+
+
+#light {
+  background-color: $LightThemeBG;
+}
+
+#dark {
+  background-color: $DarkThemeBG;
+}
+
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/Helvetica-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/Helvetica-BoldOblique.ttf') format('truetype');
+  font-weight: bold;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/helvetica-compressed-5871d14b6903a.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/helvetica-light-587ebe5a59211.ttf') format('truetype');
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/Helvetica-Oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./path-to-fonts/helvetica-rounded-bold-5871d05ead8de.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+}

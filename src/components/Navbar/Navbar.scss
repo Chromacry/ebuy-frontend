@@ -1,0 +1,224 @@
+@import '../../App.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: max-content;
+  background-color: $DarkThemeNav;
+  backdrop-filter: blur(10px);
+  margin: auto;
+  padding: 15px 50px 15px 50px;
+  transition: background-color 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#light .navbar{
+  background-color: $LightThemeNav;
+}
+
+
+.NavbarContainer{
+  position: sticky;
+  top: 0;
+  left: 0;
+
+}
+
+.logo {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.HamburgMenu {
+  display: none;
+}
+
+.MobileMenuActive{
+  display: none;
+}
+
+
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links a {
+  color: $DarkPrimary;
+  text-decoration: none;
+  text-align: center;
+  padding-right: 55px;
+  font-weight:400;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+#light .links a {
+color: $LightPrimary;
+}
+.active{
+  color: $DarkSecondary2!important;
+  pointer-events: none;
+}
+
+#light .active{
+  color: $LightSecondary2!important;
+}
+
+#light .links a::after{
+  background-color: $LightPrimary;
+}
+
+/* .links a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .links a:hover::before {
+    width: 100%;
+    left: 0;
+    right: 0;
+  } */
+
+
+.links a::after {
+  content: '';
+  width: 0%;
+  height: 3px;
+  bottom: 0;
+  background: $DarkPrimary;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+
+.MobileMenu{
+  display: none;
+}
+
+
+
+
+
+@media only screen and (max-device-width: 600px) {
+  .navbar{
+    display: none;
+  }
+
+  .CloseAndToggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .NavbarContainer{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .MobileMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    background-color:$DarkThemeNav;
+    backdrop-filter: blur(10px);
+    margin: auto;
+    padding: 15px 50px 15px 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  #light .MobileMenu{
+    background-color: $LightThemeNav;
+  }
+.HamburgMenu {
+    display: block;
+    color: white;
+  }
+
+  #light .HamburgMenu{
+    color: $LightPrimary;
+  }
+
+.MobileMenuActive{
+  display: block;
+    position: sticky;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);  
+    height: 100vh;
+    padding: 20px 50px 15px 50px;
+  }
+
+  #light .MobileMenuActive{
+    background-color: $LightThemeNav;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  
+
+  .MobileMenuClose i{
+    color: white;
+    font-size: 2em;
+  }
+
+  #light .MobileMenuClose i{
+    color: $LightPrimary;
+  }
+
+.MobileMenuLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.MobileMenuLinks a{
+  color: $DarkPrimary3;
+  text-decoration: none;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+
+#light .MobileMenuLinks a{
+color: $LightPrimary2;
+}
+
+.active{
+  color: $DarkPrimary!important;
+}
+
+#light .active{
+  color: $LightPrimary!important;
+}
+
+
+
+}

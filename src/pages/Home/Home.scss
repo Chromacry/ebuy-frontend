@@ -1,0 +1,45 @@
+.wrapper{
+    max-width: 90%;
+    overflow-x: hidden;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .Announcement{
+    color: white;
+    text-align: center;
+    margin: 70px 0 10px 0;
+  }
+  
+  #light .Announcement{
+    color: black;
+  }
+  
+  .main{
+    background-image: url("../Img/banner.webp");
+   height: 150vh;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+  
+  }
+  
+  
+  
+  @media only screen 
+  and (max-device-width: 600px){
+    .wrapper{
+      max-width: 90%;
+      overflow: hidden;
+    }
+    .main{
+      background-image: url("../Img/banner.webp");
+     height: 45vh;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+    }
+  }
+  
+  
