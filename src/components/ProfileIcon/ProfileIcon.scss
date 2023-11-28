@@ -1,0 +1,89 @@
+@import '../../App.scss';
+
+.profilePopover {
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    background-color: $DarkSecondary;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    color: $DarkPrimary2;
+
+    hr {
+        width: 100%;
+        border: solid 1px $DarkPrimary2;
+    }
+
+    img {
+        max-width: 60px;
+    }
+
+    p {
+        margin: 0 0 5px 0;
+        user-select: none;
+    }
+
+    .profileInfoContainer {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        img {
+            border-radius: 100%;
+        }
+    }
+
+    .profilePopoverLinks {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0 0 0;
+
+        button {
+            padding: 10px 0 10px 0;
+            text-decoration: none;
+            text-align: left;
+            font-size: 15px;
+            color: $DarkPrimary2;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background-color: transparent;
+        }
+
+        button:hover {
+            color: $DarkPrimary;
+        }
+    }
+}
+
+.profileIcon {
+    cursor: pointer;
+
+    svg {
+        font-size: 30px;
+        color: $DarkPrimary;
+    }
+}
+
+#light .profileIcon svg {
+    color: $LightPrimary;
+}
+
+#light .profilePopover {
+    background-color: $LightSecondary;
+    color: $LightPrimary;
+}
+
+#light .profilepopoverLinks button:hover {
+    color: $LightPrimary;
+}
+
+#light .profileInfoContainer img {
+    filter: invert(1);
+}

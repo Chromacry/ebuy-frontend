@@ -1,0 +1,36 @@
+@import '../../App.scss';
+.searchContainer {
+    position: relative;
+    width: 100%;
+    max-width: 400px; // adjust as needed
+
+    form{
+      display: flex;
+      gap:10px;
+    }
+  
+    .searchInput{
+      width: 100%;
+      height: 20px;
+      padding: 10px; // right padding to make room for the button
+      border: none;
+      background-color: $DarkSecondary2;
+      border-radius: 8px;
+    }
+  
+    .searchButton {
+      border: none;
+      background-color: $Accent;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .searchButton:hover{
+      background-color: $AccentHover;
+    }
+  }
+
+  #light .searchInput{
+    background-color: $LightSecondary;
+  }
+  

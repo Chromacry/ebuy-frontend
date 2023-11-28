@@ -17,15 +17,9 @@ const App = () => {
   
   useEffect(() => {
     // Check if the items are not already in localStorage
-    if (!localStorage.getItem("FirstName")) {
-      localStorage.setItem("Username", "John Doe");
-      localStorage.setItem("LastName", "Doe");
+    if (!localStorage.getItem("Username")) {
       localStorage.setItem("Email", "johndoe@gmail.com");
-      const firstName = localStorage.getItem("FirstName");
-      const lastName = localStorage.getItem("LastName");
-      // Combine FirstName and LastName to create UserName
-      const userName = `${firstName} ${lastName}`;
-      localStorage.setItem("UserName", userName);
+      localStorage.setItem("UserName", "John Doe");
     }
   }, []);
 

@@ -3,6 +3,11 @@ import "./Navbar.scss";
 import { ThemeContext } from "../../App";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 import Logo from '../../assets/images/projectxLogo.png'
+import ProfileIcon from "../ProfileIcon/ProfileIcon";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import DefaultProfileImg from "../../assets/images/DefaultProfileImg.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faBars, faTimes   } from '@fortawesome/free-solid-svg-icons';
 import {
   Link,
   useLocation,
@@ -10,6 +15,12 @@ import {
 
 
 const Navbar = () => {
+
+
+  const email = localStorage.getItem("Email");
+  const userName = localStorage.getItem("UserName");
+  const userLoggedIn = !!userName; // true if userName exists, false otherwise
+
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(true);
   const [isMobileMenuActiveVisible, setIsMobileMenuActiveVisible] =
@@ -25,28 +36,25 @@ const Navbar = () => {
   };
   useEffect(() => {
     if (isMobileMenuActiveVisible) {
-      // Apply overflow: hidden to the body when menu is active
       document.body.style.overflow = "hidden";
     } else {
-      // Reset overflow to auto when menu is not active
       document.body.style.overflow = "auto";
     }
-
     return () => {
-      // Reset overflow to auto when component is unmounted
       document.body.style.overflow = "auto";
     };
   }, [isMobileMenuActiveVisible]);
   const location = useLocation();
+  const handleCartClick = () => {
+    window.location.href = '/cart';
+  };
   const navLinks = [
     { path: "/", text: "Home" },
-    { path: "/aboutus", text: "About Us" },
-    { path: "/gallery", text: "Gallery" },
-    { path: "/backstage", text: "Backstage Pass" },
-    { path: "/contact", text: "Contact Us" },
+    { path: "/orders", text: "Orders" },
+    { path: "/aboutUs", text: "About Us" },
   ];
   return (
-    <div className="NavbarContainer">
+    <div className="navbarContainer">
       <div className="navbar">
         <Link to="/">
           <img className="logo" src={Logo} alt="Logo" />
@@ -61,13 +69,24 @@ const Navbar = () => {
               {navLink.text}
             </Link>
           ))}
-          <ThemeSwitch />
+          
+         
         </div>
+        <SearchBar/>
+        
+        <div className="iconContainer">
+        <ThemeSwitch />
+        <ProfileIcon/>
+        <button onClick={handleCartClick} className="cartButton">
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </button>
+      </div>
+        
       </div>
 
-      <div className={isMobileMenuVisible ? "MobileMenu" : "MobileMenu hidden"}>
-        <div className="HamburgMenu" onClick={toggleMobileMenu}>
-          <i className="fa fa-bars fa-2x"></i>
+      <div className={isMobileMenuVisible ? "mobileMenu" : "mobileMenu hidden"}>
+      <div className="hamburgMenu" onClick={toggleMobileMenu}>
+          <FontAwesomeIcon icon={faBars} />
         </div>
         <Link to="/">
           <img className="logo" src={Logo} alt="Logo" />
@@ -78,17 +97,26 @@ const Navbar = () => {
       <div
         className={
           isMobileMenuActiveVisible
-            ? "MobileMenuActive"
-            : "MobileMenuActive hidden"
+            ? "mobileMenuActive"
+            : "mobileMenuActive hidden"
         }
       >
-        <div className="CloseAndToggle">
-          <div className="MobileMenuClose" onClick={toggleMobileMenu}>
-            <i className="fa fa-times"></i>
+        <div className="closeAndToggle">
+        <div className="mobileMenuClose" onClick={toggleMobileMenu}>
+            <FontAwesomeIcon icon={faTimes} />
           </div>
           <ThemeSwitch />
         </div>
-        <div className="MobileMenuLinks">
+        <div className="mobileMenuLinks"> 
+        <div className="userInfo">
+                <img src={DefaultProfileImg} alt="" srcset="" />
+                <div>
+                  <p>{userName}</p>
+                  <p>{email}</p>
+                </div>
+              </div>
+        <SearchBar/>
+        <div className="links">
           {navLinks.map((navLink, index) => (
             <Link
               key={index}
@@ -98,6 +126,22 @@ const Navbar = () => {
               {navLink.text}
             </Link>
           ))}
+        </div>
+        <div className="userLinks">
+            {userLoggedIn ? (
+              <>
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+              </>
+            ) : (
+              <>
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+              </>
+            )}
+          </div>
+          
+
         </div>
       </div>
     </div>

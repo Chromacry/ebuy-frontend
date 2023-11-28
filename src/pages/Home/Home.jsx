@@ -1,5 +1,5 @@
 import "./Home.scss";
-import Navbar from "../../components/Navbar/NavBar";
+import Navbar from "../../components/Navbar/Navbar";
 import { useEffect } from "react";
 import { loginApi } from "../../services/APIs/UserApi";
 
@@ -16,11 +16,8 @@ function Home() {
  
       <div className="body"><Navbar />
         <section className="main">
-          
         </section>
         <div className="wrapper">
-          <h1 className="Announcement">Announcement!</h1>
-          <hr />
         </div>
       </div>
   );
