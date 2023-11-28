@@ -3,6 +3,8 @@
   $CallToAction2: rgb(255, 0, 0);
   $CallToActionHover: rgb(69, 93, 159);
   $CallToActionHover2:rgb(179, 0, 0);
+  $Accent: rgb(167, 246, 255);
+  $AccentHover: rgb(176, 167, 255);
 
   $LightThemeBG: rgb(255, 255, 255);
   $LightThemeNav: rgb(255, 255, 255,0.5);
@@ -85,6 +87,7 @@
 
 body {
   font-family: 'Helvetica', Arial, sans-serif;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }

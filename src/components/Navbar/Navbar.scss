@@ -13,6 +13,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  gap:15px
 }
 
 #light .navbar{
@@ -20,7 +21,7 @@
 }
 
 
-.NavbarContainer{
+.navbarContainer{
   position: sticky;
   top: 0;
   left: 0;
@@ -32,11 +33,11 @@
   border-radius: 10px;
 }
 
-.HamburgMenu {
+.hamburgMenu {
   display: none;
 }
 
-.MobileMenuActive{
+.mobileMenuActive{
   display: none;
 }
 
@@ -76,22 +77,7 @@ color: $LightPrimary;
   background-color: $LightPrimary;
 }
 
-/* .links a::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: white;
-    transition: width 0.3s ease;
-  }
-  
-  .links a:hover::before {
-    width: 100%;
-    left: 0;
-    right: 0;
-  } */
+
 
 
 .links a::after {
@@ -109,8 +95,30 @@ color: $LightPrimary;
   width: 100%;
 }
 
+.iconContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
 
-.MobileMenu{
+  button{
+    all: unset;
+    svg{
+      font-size: 30px;
+      color: white;
+    }
+    
+  }
+}
+
+
+#light .iconContainer {
+  .cartButton svg{
+    color: black;
+  }
+  
+}
+.mobileMenu{
   display: none;
 }
 
@@ -119,24 +127,28 @@ color: $LightPrimary;
 
 
 @media only screen and (max-device-width: 600px) {
+  .logo{
+    width: 50px;
+  }
   .navbar{
     display: none;
   }
 
-  .CloseAndToggle{
+  .closeAndToggle{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 7px;
   }
   
   
-  .NavbarContainer{
+  .navbarContainer{
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 9;
   }
 
-  .MobileMenu{
+  .mobileMenu{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -148,19 +160,24 @@ color: $LightPrimary;
     transition: background-color 0.3s ease;
   }
 
-  #light .MobileMenu{
+  #light .mobileMenu{
     background-color: $LightThemeNav;
   }
-.HamburgMenu {
+.hamburgMenu {
     display: block;
-    color: white;
+    svg{
+      font-size: 30px;
+      color: $DarkPrimary;
+    }
   }
 
-  #light .HamburgMenu{
-    color: $LightPrimary;
+  #light .hamburgMenu{
+    svg{
+      color: $LightPrimary;
+    }
   }
 
-.MobileMenuActive{
+.mobileMenuActive{
   display: block;
     position: sticky;
     z-index: 101;
@@ -172,7 +189,7 @@ color: $LightPrimary;
     padding: 20px 50px 15px 50px;
   }
 
-  #light .MobileMenuActive{
+  #light .mobileMenuActive{
     background-color: $LightThemeNav;
   }
   
@@ -182,32 +199,82 @@ color: $LightPrimary;
 
   
 
-  .MobileMenuClose i{
-    color: white;
-    font-size: 2em;
+  .mobileMenuClose{
+    svg{
+      font-size: 30px;
+      color: $DarkPrimary;
+    }
+    
   }
 
-  #light .MobileMenuClose i{
-    color: $LightPrimary;
+  #light .mobileMenuClose{
+    svg{
+      color: $LightPrimary;
+    }
   }
 
-.MobileMenuLinks {
+
+.mobileMenuLinks {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  padding: 30px 0;
+  justify-content: space-between;
+  .searchContainer{
+    margin-bottom: 30px;
+  }
+  a{
+    color: $DarkPrimary3;
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .userLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+  }
+
 }
 
-.MobileMenuLinks a{
-  color: $DarkPrimary3;
-  text-decoration: none;
+
+
+.userInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
   margin-bottom: 30px;
-  font-weight: bold;
-  font-size: 1.2em;
+
+  img {
+      border-radius: 100%;
+      width: 50px;
+      filter: invert(0);
+  }
+  p{
+    color: $DarkPrimary2;
+  }
+}
+
+
+#light .userInfo{
+  img{
+    filter: invert(1);
+  }
+  p{
+    color: $DarkPrimary3;
+  }
 }
 
 
 
-#light .MobileMenuLinks a{
+#light .mobileMenuLinks a{
 color: $LightPrimary2;
 }
 
