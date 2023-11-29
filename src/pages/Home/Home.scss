@@ -1,45 +1,109 @@
-.wrapper{
+@import '../../App.scss';
+
+.wrapper {
+  max-width: 90%;
+  overflow-x: hidden;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+
+
+.heroSection {
+  width: 100%;
+  background-color: $Accent2;
+
+  height: 70vh;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    img {
+      width: 55vw;
+      padding: 20px;
+    }
+
+    .text {
+      width: 40vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+
+      h1 {
+        font-size: 60px;
+        color: $DarkPrimary;
+        display: flex; // Aligns children inline and on the same baseline
+        align-items: center;
+      }
+
+      p {
+        color: $DarkPrimary3;
+        margin-left: 60px;
+      }
+
+      button {
+        all: unset;
+        background-color: $Accent;
+        padding: 10px 15px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10vw;
+      }
+    }
+  }
+
+
+}
+
+.typewriter {
+  display: inline-block;
+  white-space: nowrap; // Keeps the text in a single line
+  overflow: hidden; // Hides the overflow text
+  border-right: 3px solid; // Simulates the typewriter cursor
+  animation: blinkCursor 0.75s steps(40) infinite normal; // Cursor blink effect
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.arrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  top: 280px;
+  height: 250px;
+  width: 120px; 
+  background-color: transparent;
+  border: solid $Accent;
+  border-width: 0 0 3px 3px;
+}
+
+
+
+
+
+@media only screen and (max-device-width: 600px) {
+  .wrapper {
     max-width: 90%;
-    overflow-x: hidden;
-    margin-right: auto;
-    margin-left: auto;
+    overflow: hidden;
   }
-  
-  .Announcement{
-    color: white;
-    text-align: center;
-    margin: 70px 0 10px 0;
-  }
-  
-  #light .Announcement{
-    color: black;
-  }
-  
-  .main{
+
+  .main {
     background-image: url("../Img/banner.webp");
-   height: 150vh;
-   width: 100%;
-   background-repeat: no-repeat;
-   background-position: center;
-   background-size: cover;
-  
+    height: 45vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
-  
-  
-  
-  @media only screen 
-  and (max-device-width: 600px){
-    .wrapper{
-      max-width: 90%;
-      overflow: hidden;
-    }
-    .main{
-      background-image: url("../Img/banner.webp");
-     height: 45vh;
-     background-repeat: no-repeat;
-     background-position: center;
-     background-size: cover;
-    }
-  }
-  
-  
+}
