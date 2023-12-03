@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCediSign, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { registerApi } from '../../services/APIs/UserApi';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { loginApi} from '../../services/APIs/UserApi';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import Banner from "../../assets/images/banner.png"
-import './RegisterForm.scss';
+import './LoginForm.scss';
 
-const RegisterForm = () => {
+const LoginForm = () => {
     const [message, setMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const [formData, setFormData] = useState({
-        username: '',
         email: '',
         password: '',
     });
@@ -26,24 +25,26 @@ const RegisterForm = () => {
         setShowPassword(!showPassword);
     };
 
-    const register = async (e) => {
+    const login = async (e) => {
         e.preventDefault();
         setMessage('');
         setErrorMessage('');
     
-        if (!formData.username || !formData.email || !formData.password) {
+        if (!formData.email || !formData.password) {
             setErrorMessage('Please fill out all fields.');
             return;
         }
     
-            const response = await registerApi(formData);
+            const response = await loginApi(formData);
+            console.log(response)
             let responseMessage = response.message;
             let responseStatus = response.status;
-
+            let responseToken = response.token;
+            localStorage.setItem('token', responseToken)
             if(responseStatus == 200){
                 setMessage(responseMessage);
                 setTimeout(() => {
-                    window.location.href = '/login';
+                    window.location.href = '/';
                 }, 1500); 
             }
             else {
@@ -55,24 +56,13 @@ const RegisterForm = () => {
 
     return (
 
-        <div className="registerFormContainer">
+        <div className="loginFormContainer">
 
              <img src={Banner} alt="" srcset="" />
-            <form onSubmit={register}>
-                <div className="title"><h1>Create your Account!</h1>
-            <p>Already got an account? <a href='/login'>Login here.</a></p></div>
- 
-                <div className="formGroup">
-                    <input
-                        type="text"
-                        name="username"
-                        id="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        placeholder=" "
-                    />
-                    <label htmlFor="username">Username</label>
-                </div>
+            <form onSubmit={login}>
+                <div className="title"><h1>Login to your Account!</h1>
+            <p>Don't have an account yet? <a href='/register'>Register here.</a></p></div>
+
 
                 <div className="formGroup">
                     <input
@@ -102,7 +92,7 @@ const RegisterForm = () => {
                 </div>
                 {message && <div className="formMessage"> <FontAwesomeIcon icon={faCheck} />  {message}</div>}
                 {errorMessage && <div className="formErrorMessage"> <FontAwesomeIcon icon={faTimes} />  {errorMessage}</div>}
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
 
 
 
@@ -112,4 +102,4 @@ const RegisterForm = () => {
     );
 };
 
-export default RegisterForm;
+export default LoginForm;

@@ -1,20 +1,21 @@
-import "./Register.scss";
+import "./Login.scss";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import RegisterForm from "../../components/RegisterForm/RegisterForm";
-function Register() {
+import LoginForm from "../../components/LoginForm/LoginForm";
+
+function Login() {
   return (
     <div className="body">
       
-      <section className="registerContainer">
+      <section className="loginContainer">
 
           <Navbar />
           <div className="flexContainer">
-            <RegisterForm />
+            <LoginForm />
           </div>
       </section>
       
     </div>
   );
 }
-export default Register;
+export default Login;
