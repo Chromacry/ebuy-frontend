@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import "./App.scss";
 import Home from "./pages/Home/Home";
+import Register from "./pages/Register/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export const ThemeContext = createContext(null);
 
@@ -14,7 +15,6 @@ const App = () => {
     localStorage.setItem("theme", newTheme);
   };
 
-  
   useEffect(() => {
     // Check if the items are not already in localStorage
     if (!localStorage.getItem("Username")) {
@@ -29,7 +29,8 @@ const App = () => {
         <div className="Theme" id={theme}>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home/>} />
+              <Route path="/" element={<Home />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </BrowserRouter>
         </div>
