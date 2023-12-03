@@ -1,0 +1,33 @@
+@import "../../App.scss";
+.registerContainer{
+    // background-image: url(../../assets/images/banner2.png);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+        .flexContainer{
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+            gap: 50px;
+            height: 85vh;
+            width: 90%;
+            
+        }
+        
+    
+}
+
+#light{
+    .formBackground{
+        background-color: $LightThemeNav;
+    }
+    .heading{
+        h1{
+            color: $LightPrimary;
+            font-size: 50px;
+        }
+    }
+}

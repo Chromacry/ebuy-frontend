@@ -1,0 +1,195 @@
+@import "../../App.scss";
+
+.registerFormContainer {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $DarkSecondary; // Example background color
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img{
+        width: 60%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 400px;
+
+        .title{
+            h1{
+            color: $DarkPrimary;
+        }
+        p{
+            color: $DarkPrimary3;
+            a{
+                all: unset;
+                color: $Accent;
+                font-weight: bold;
+                &:hover{
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+        .formGroup {
+            position: relative;
+            margin-bottom: 20px;
+            width: 90%;
+            align-self: center;
+   
+
+            input {
+                all: unset;
+                width: 94%;
+                border-bottom: 1px solid $DarkPrimary2 ;
+                padding: 15px 10px;
+                font-size: 16px;
+                color: $DarkPrimary;
+                background-color: transparent;
+
+
+                &:focus+label,
+                &:not(:placeholder-shown)+label {
+                    top: -13px;
+                    left: 10px;
+                    font-size: 12px;
+                    padding: 5px;
+                }
+            }
+
+            label {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                padding: 0;
+                font-size: 16px;
+                color: $DarkPrimary2;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                background-color: transparent;
+            }
+        }
+
+        .passwordGroup {
+            position: relative;
+
+            .togglePassword {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 16px; // Adjust size as needed
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .togglePassword svg {
+                color: $Accent;
+
+                &:hover {
+                    color: $AccentHover;
+                }
+            }
+        }
+
+        button[type="submit"] {
+            margin-top: 50px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            width: 90%;
+            align-self: center;
+            background-color: $Accent; // Example button color
+            color: $LightPrimary;
+            font-size: 16px;
+            cursor: pointer;
+            &:hover {
+                background-color: $AccentHover;
+            }
+        }
+    }
+    .formMessage{
+        width: 80%;
+        color: $Accent;
+        margin: 0 auto;
+        padding: 20px 15px;
+        border: 1px solid $Accent;
+        border-radius: 10px;
+    }
+    .formErrorMessage{
+        width: 80%;
+        color: $Error;
+        margin: 0 auto;
+        padding: 20px 15px;
+        border: 1px solid $Error;
+        border-radius: 10px;
+    }
+}
+
+#light {
+    .registerFormContainer {
+        background-color: $LightSecondary;
+        .title{
+            h1{
+            color: $LightPrimary;
+        }
+        p{
+            color: $DarkPrimary3;
+            a{
+                all: unset;
+                color: $LightAccent;
+                font-weight: bold;
+                &:hover{
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+        
+            .formGroup {
+                input {
+                    border-bottom: 1px solid $LightSecondary2;
+                    color: $LightPrimary;
+
+
+                }
+            }
+
+            .passwordGroup {
+                .togglePassword {
+                    svg {
+                        color: $LightAccent;
+
+                        &:hover {
+                            color: $LightAccentHover;
+                        }
+                    }
+                }
+            }
+
+            button[type="submit"] {
+                background-color: $LightAccent;
+                color: $DarkPrimary;
+
+                &:hover {
+                    background-color: $LightAccentHover;
+                    color: $LightPrimary;
+                }
+            }
+ 
+        
+    }
+
+
+}

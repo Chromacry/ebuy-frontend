@@ -1,0 +1,32 @@
+@import '../../App.scss';
+.carousel {
+    position: relative;
+    max-width: 600px; // Adjust as needed
+    margin: auto;
+
+    img {
+        width: 90%;
+        border-radius: 10px;
+        margin: auto;
+        height: auto;
+        display: block;
+    }
+
+    .carouselIndicators {
+        text-align: center;
+        padding-top: 10px; // Space above the dots
+
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 3px;
+            border: none;
+            margin: 0 5px;
+            background-color: $DarkPrimary2; // Non-active dot color
+
+            &.active {
+                background-color: $Accent; // Active dot color
+            }
+        }
+    }
+}
