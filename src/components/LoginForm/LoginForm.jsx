@@ -6,6 +6,7 @@ import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import Banner from "../../assets/images/banner.png"
 import './LoginForm.scss';
+import { setUserInfoInLocalStorage } from '../../utils/LocalStorageUntil';
 
 const LoginForm = () => {
     const [message, setMessage] = useState('');
@@ -40,7 +41,7 @@ const LoginForm = () => {
             let responseMessage = response.message;
             let responseStatus = response.status;
             let responseToken = response.token;
-            localStorage.setItem('token', responseToken)
+            setUserInfoInLocalStorage({"accessToken":responseToken})
             if(responseStatus == 200){
                 setMessage(responseMessage);
                 setTimeout(() => {

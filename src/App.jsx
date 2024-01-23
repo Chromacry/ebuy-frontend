@@ -4,6 +4,8 @@ import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { getUserApi } from "./services/APIs/UserApi";
+import { getUserInfoFromLocalStorage, setUserInfoInLocalStorage } from "./utils/LocalStorageUntil";
 export const ThemeContext = createContext(null);
 
 const App = () => {
@@ -15,14 +17,21 @@ const App = () => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
+  const getUser = async (e) => {
+     const response = await getUserApi();
+     let accessToken = getUserInfoFromLocalStorage().accessToken
+     setUserInfoInLocalStorage({
+      accessToken : accessToken,
+      username: response.username,
+      email: response.email,
+      id: response.id,
+      created_time: response.created_time,
+      profile_image: response.profile_image
 
-  // useEffect(() => {
-  //   // Check if the items are not already in localStorage
-  //   if (!localStorage.getItem("Username")) {
-  //     localStorage.setItem("Email", "johndoe@gmail.com");
-  //     localStorage.setItem("UserName", "John Doe");
-  //   }
-  // }, []);
+     })
+        console.log(response)
+};
+getUser();
 
   return (
     <>
@@ -31,7 +40,6 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
-
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
             </Routes>
