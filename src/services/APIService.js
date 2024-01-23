@@ -1,10 +1,13 @@
+import {getUserInfoFromLocalStorage } from "../utils/LocalStorageUntil";
+
 const BASE_URL = 'http://localhost:8080/api';
 class APIService {
     async request(endpoint, method, body = null) {
         const requestOptions = {
             method: method,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'token': getUserInfoFromLocalStorage().accessToken || "accessToken"
             },
             body: body ? JSON.stringify(body) : null,
         }
