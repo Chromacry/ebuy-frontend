@@ -31,7 +31,10 @@ const App = () => {
      })
         console.log(response)
 };
-getUser();
+if(localStorage.getItem("userInfo")){
+  getUser();
+}
+
 
   return (
     <>
