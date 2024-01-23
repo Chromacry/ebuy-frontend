@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Admin from "./pages/Admin/Admin";
 import { getUserApi } from "./services/APIs/UserApi";
 import { getUserInfoFromLocalStorage, setUserInfoInLocalStorage } from "./utils/LocalStorageUntil";
 export const ThemeContext = createContext(null);
@@ -45,6 +46,7 @@ if(localStorage.getItem("userInfo")){
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </BrowserRouter>
         </div>

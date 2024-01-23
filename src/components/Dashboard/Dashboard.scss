@@ -1,0 +1,20 @@
+@import "../../App.scss";
+.dashboardContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    margin: 30px;
+    grid-gap: 10px;
+}
+
+.dashboardContainer>div{
+    background-color: $DarkSecondary;
+    border-radius: 10px;
+    padding: 20px;
+    color:$DarkSecondary2;
+}
+
+#light .dashboardContainer>div{
+    background-color: $LightSecondary;
+    color: $LightPrimary3;
+}

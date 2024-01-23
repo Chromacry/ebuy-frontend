@@ -1,0 +1,180 @@
+@import "../../App.scss";
+.AdminConsoleBody{
+    display: flex;
+}
+.admin-sidebar {
+    width: 60px;
+    height: 100vh;
+    background-color: $DarkSecondary;
+    color: $DarkPrimary2;
+    border: none;
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: ease-in-out;
+  }
+
+  #light .admin-sidebar{
+    background-color: $LightSecondary;
+    color: $LightPrimary2;
+  }
+
+  .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    /* margin: 20px 0 30px 0; */
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+  }
+
+  .SwitchTheme{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* margin: 30px 0 30px 0; */
+  }
+
+  .SwitchTheme p{
+    display: none;
+  }
+
+  .SwitchTheme.show-text p{
+    display: block;
+  }
+
+  .admin-sidebar.show-text{
+    width: 220px;}
+  
+  .Logo{
+    display: none;
+  }
+
+.Logo.show-text{
+    display: block;
+    width: 150px;
+}
+
+#light .Logo.show-text{
+  filter: invert(1);
+}
+
+.toggle-button {
+    background-color: rgba(255, 255, 255, 0);
+    color: $CallToAction;
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .toggle-button:hover{
+    color: $CallToActionHover;
+  }
+
+  #light .toggle-button:hover{
+    color: $CallToActionHover;
+  }
+
+  #light li:hover, #light .Links button:hover{
+    color: $LightPrimary;
+  }
+
+  .toggle-button.left{
+    margin: auto;
+  }
+
+  .Links{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 0px 0 35px;
+  }
+
+  .Links button{
+    margin: 25px 0 0 0;
+    text-align: left;
+    font-size: large;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: $DarkPrimary2;
+  }
+
+  .Links svg{
+    margin-right: 10px;
+  }
+
+  .Links button:hover{
+    color: $DarkPrimary;
+  }
+
+
+
+  ul {
+    display: flex;
+    flex-direction:column ;
+    height: 50vh;
+    justify-content: space-evenly;
+    align-content: center;
+    list-style: none;
+    padding: 0 0 0 20px;
+    width: 100%;
+  }
+  
+  li {
+    padding: 15px 0 15px 15px;
+    cursor: pointer;
+    color: $DarkPrimary2;
+  }
+  
+  li:hover {
+    color: $DarkPrimary;
+    border-radius: 10px 0 0 10px;
+    border: none;
+  }
+  
+  .selected {
+    background-color: $DarkThemeBG;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    pointer-events: none;
+    color: $DarkPrimary;
+    transition: ease-in-out;
+  }
+
+  #light .selected{
+    background-color: $LightThemeBG;
+    color: $LightPrimary;
+  }
+
+  .admin-sidebar ul li svg {
+    margin-right: 10px; /* Add right margin to the icons for padding */
+  }
+  
+  .SelectedComponent{
+    width: 90vw;
+    margin: auto;
+  }
+
+  .SelectedComponent.show-text{
+    filter: blur(10px);
+    width: 70vw;
+  }
+
+  .ComponentRender{
+    min-height:100vh ;
+  }
