@@ -1,9 +1,14 @@
 export const getUserInfoFromLocalStorage = () => {
-    let userInfo = localStorage.getItem('userInfo')
+   
+    try {
+     let userInfo = localStorage.getItem('userInfo')
     userInfo = JSON.parse(userInfo)
     return userInfo
-    
+} catch (error) {
+    console.log(error)
 }
+}
+
 
 export const setUserInfoInLocalStorage = (userInfo) => {
     try {
