@@ -1,0 +1,39 @@
+@import '../../App.scss';
+
+.wrapper {
+  max-width: 90%;
+  overflow-x: hidden;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.body {
+  // background-color: white;
+  padding: 0 50px;
+}
+.tableTopBar {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+.tableContainer {
+  width: 100%;
+  border-radius: 11px;
+  background-color: #242424;
+  color: white;
+}
+@media only screen and (max-device-width: 600px) {
+  .wrapper {
+    max-width: 90%;
+    overflow: hidden;
+  }
+
+  .main {
+    background-image: url("../Img/banner.webp");
+    height: 45vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
