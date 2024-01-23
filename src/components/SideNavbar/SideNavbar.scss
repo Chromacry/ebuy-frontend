@@ -1,0 +1,299 @@
+@import '../../App.scss';
+
+.sidenavbarContainer {
+  transition: width 0.5s ease-in-out;
+  overflow: hidden;
+  background-color: 'gray';
+  padding: 0 20px;
+  height: 100svh;
+  &.true {
+    width: 20%;
+  }
+  &.false {
+    width: 0%;
+    padding: 0;
+  }
+}
+.sidenavbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  color: white;
+}
+
+
+.sidenavButton {
+  width: 100%;
+  border-radius: 11px;;
+  background-color: white;
+  padding: 10px 50px;
+  border-radius: 6px;
+  a {
+    text-decoration: none;
+  }
+}
+.sidenavText  {
+  margin: 0;
+  padding: 0;
+  color: black;
+  text-align: left;
+  font-size: 100%;
+}
+
+
+.logo {
+  width: 50px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links a {
+  color: $DarkPrimary;
+  text-decoration: none;
+  text-align: center;
+  padding-right: 55px;
+  font-weight:400;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+#light .links a {
+color: $LightPrimary;
+}
+.active{
+  color: $DarkSecondary2!important;
+  pointer-events: none;
+}
+
+#light .active{
+  color: $LightSecondary2!important;
+}
+
+#light .links a::after{
+  background-color: $LightPrimary;
+}
+
+
+
+
+.links a::after {
+  content: '';
+  width: 0%;
+  height: 3px;
+  bottom: 0;
+  background: $DarkPrimary;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.iconContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+
+  button{
+    all: unset;
+    svg{
+      font-size: 30px;
+      color: white;
+    }
+    
+  }
+}
+
+
+#light .iconContainer {
+  .cartButton svg{
+    color: black;
+  }
+  
+}
+.mobileMenu{
+  display: none;
+}
+
+
+
+
+
+@media only screen and (max-device-width: 600px) {
+  .logo{
+    width: 50px;
+  }
+  .navbar{
+    display: none;
+  }
+
+  .closeAndToggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+  }
+  
+  
+  .navbarContainer{
+    position: sticky;
+    top: 0;
+    z-index: 9;
+  }
+
+  .mobileMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    background-color:$DarkThemeNav;
+    backdrop-filter: blur(10px);
+    margin: auto;
+    padding: 15px 50px 15px 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  #light .mobileMenu{
+    background-color: $LightThemeNav;
+  }
+.hamburgMenu {
+    display: block;
+    svg{
+      font-size: 30px;
+      color: $DarkPrimary;
+    }
+  }
+
+  #light .hamburgMenu{
+    svg{
+      color: $LightPrimary;
+    }
+  }
+
+.mobileMenuActive{
+  display: block;
+    position: sticky;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);  
+    height: 100vh;
+    padding: 20px 50px 15px 50px;
+  }
+
+  #light .mobileMenuActive{
+    background-color: $LightThemeNav;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  
+
+  .mobileMenuClose{
+    svg{
+      font-size: 30px;
+      color: $DarkPrimary;
+    }
+    
+  }
+
+  #light .mobileMenuClose{
+    svg{
+      color: $LightPrimary;
+    }
+  }
+
+
+.mobileMenuLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  justify-content: space-between;
+  .searchContainer{
+    margin-bottom: 30px;
+  }
+  a{
+    color: $DarkPrimary3;
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .userLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+  }
+
+}
+
+
+
+.userInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+  img {
+      border-radius: 100%;
+      width: 50px;
+      filter: invert(0);
+  }
+  p{
+    color: $DarkPrimary2;
+  }
+}
+
+
+#light .userInfo{
+  img{
+    filter: invert(1);
+  }
+  p{
+    color: $DarkPrimary3;
+  }
+}
+
+
+
+#light .mobileMenuLinks a{
+color: $LightPrimary2;
+}
+
+.active{
+  color: $DarkPrimary!important;
+}
+
+#light .active{
+  color: $LightPrimary!important;
+}
+
+
+
+}

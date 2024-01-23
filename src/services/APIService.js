@@ -7,7 +7,7 @@ class APIService {
             method: method,
             headers: {
                 'Content-Type': 'application/json',
-                'token': getUserInfoFromLocalStorage().accessToken || "accessToken"
+                'token': getUserInfoFromLocalStorage()?.accessToken || "accessToken"
             },
             body: body ? JSON.stringify(body) : null,
         }
