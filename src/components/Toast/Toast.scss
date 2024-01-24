@@ -1,0 +1,98 @@
+// Toast.scss
+.toast {
+  position: fixed;
+  // background-color: #333;
+  background-color: rgb(232, 232, 232);
+  color: #000;
+  width: 20%;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  &.show {
+    opacity: 1;
+  }
+
+  &.hide {
+    opacity: 0;
+  }
+
+  .toast-message {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .loading-bar {
+    height: 5px;
+    background-color: #4caf50;
+    width: 100%;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: loading-bar-animation linear forwards;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: #3b3b3b;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  &.bottomLeft {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  &.bottomRight {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  &.topRight {
+    top: 20px;
+    right: 20px;
+  }
+
+  &.topLeft {
+    top: 20px;
+    left: 20px;
+  }
+
+  &.centerTop {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.centerBottom {
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  &.left {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  &.right {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  @keyframes loading-bar-animation {
+    to {
+      width: 0;
+    }
+  }
+}
