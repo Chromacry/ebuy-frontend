@@ -7,9 +7,19 @@
   margin-left: auto;
 }
 
-.body {
-  // background-color: white;
-  padding: 0 50px;
+.addFormContainer {
+  background-color: darkslategrey;
+  padding: 10px 50px;
+  border-radius: 11px;
+  margin: 0 auto;
+  width: 70%;
+  
+  h3 {
+    color: white;
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 150%;
+  }
 }
 .tableTopBar {
   display: flex;

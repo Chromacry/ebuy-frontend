@@ -1,0 +1,182 @@
+@import "@/App.scss";
+
+.addMemberForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+        h1 {
+            color: $DarkPrimary;
+        }
+
+        p {
+            color: $DarkPrimary3;
+
+            a {
+                all: unset;
+                color: $CallToAction;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .rowContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+    .formGroup {
+        position: relative;
+        margin-bottom: 30px;
+        width: 90%;
+        align-self: center;
+
+        label {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            padding: 0;
+            font-size: 16px;
+            color: $DarkPrimary2;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        input, textarea {
+            all: unset;
+            width: 92%;
+            border-bottom: 1px solid $DarkPrimary2 ;
+            padding: 5px 10px;
+            font-size: 16px;
+            color: $DarkPrimary;
+            background-color: transparent;
+
+            &:focus+label,
+            &:not(:placeholder-shown)+label {
+                top: -25px;
+                left: 5px;
+                font-size: 12px;
+                padding: 5px;
+            }
+        }
+    }
+
+    .departmentGroup {
+        select {
+            width: 100%;
+            height: 40px;
+            color: $DarkPrimary2;
+            font-weight: bold;
+            border: 1px solid $DarkPrimary2;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: transparent;
+
+            option {
+                color: $DarkPrimary;
+                background-color: $DarkSecondary2;
+                padding: 10px;
+            }
+        }
+    }
+
+    button[type="submit"] {
+        margin-top: 50px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        background-color: $CallToAction;
+        color: $LightPrimary;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $CallToActionHover;
+        }
+    }
+
+    .DropArea {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 80%;
+        margin: 0 auto;
+
+        img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 100%;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .with-image {
+            border-color: $CallToAction;
+            border-radius: 10px;
+        }
+    }
+    .formMessage{
+        width: 80%;
+        color: $CallToAction;
+        margin: 0 auto;
+        padding: 20px 15px;
+        border: 1px solid $CallToAction;
+        border-radius: 10px;
+    }
+    .formErrorMessage{
+        width: 80%;
+        color: $Error;
+        margin: 0 auto;
+        padding: 20px 15px;
+        border: 1px solid $Error;
+        border-radius: 10px;
+    }
+    
+}
+
+
+  
+
+#light {
+    .addMemberForm {
+        .formGroup {
+            label {
+                color: $DarkPrimary2;
+            }
+
+            input {
+                all: unset;
+                border-bottom: 1px solid $DarkPrimary2 ;
+                padding: 5px 10px;
+                font-size: 16px;
+                color: $LightPrimary;
+                background-color: transparent;
+                width: 92%;
+            }
+
+            button[type="submit"] {
+                background-color: $CallToAction;
+                color: $LightPrimary;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $CallToActionHover;
+                    color: $DarkPrimary;
+                }
+            }
+        }
+    }
+}
