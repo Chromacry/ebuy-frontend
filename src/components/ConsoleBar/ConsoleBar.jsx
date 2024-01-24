@@ -19,6 +19,7 @@ import DashboardComponent from "../Dashboard/Dashboard";
 // import InboxComponent from "../../pages/Inbox";
 import "./ConsoleBar.scss";
 import { Link } from "react-router-dom";
+import ManageProduct from "../../pages/ManageProduct/ManageProduct";
 
 const ConsoleBar = () => {
   const [showText, setShowText] = useState(false);
@@ -43,8 +44,8 @@ const ConsoleBar = () => {
     switch (selectedItem) {
       case "Dashboard":
         return <DashboardComponent />;
-      case "Account":
-        return <AccountComponent />;
+      case "Products":
+        return <ManageProduct />;
       case "Members":
         return <MembersComponent />;
       case "Inbox":
@@ -105,10 +106,10 @@ const ConsoleBar = () => {
             <FontAwesomeIcon icon={faChartBar} /> {showText && "Dashboard"}
           </li>
           <li
-            className={selectedItem === "Account" ? "selected" : ""}
-            onClick={() => handleItemClick("Account")}
+            className={selectedItem === "Products" ? "selected" : ""}
+            onClick={() => handleItemClick("Products")}
           >
-            <FontAwesomeIcon icon={faUser} /> {showText && "Account"}
+            <FontAwesomeIcon icon={faUser} /> {showText && "Products"}
           </li>
           <li
             className={selectedItem === "Members" ? "selected" : ""}
