@@ -86,6 +86,7 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
           <div className="profilePopoverLinks">
           {userLoggedIn ? (
               <>
+                <button onClick={handleSettingsClick}>Manage Store</button>
                 <button onClick={handleSettingsClick}>Settings</button>
                 <button onClick={handleLogout}>Logout</button>
               </>

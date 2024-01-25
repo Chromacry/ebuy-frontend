@@ -27,8 +27,7 @@ const Navbar = () => {
   const userLoggedIn = !!userInfo;
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(true);
-  const [isMobileMenuActiveVisible, setIsMobileMenuActiveVisible] =
-    useState(false);
+  const [isMobileMenuActiveVisible, setIsMobileMenuActiveVisible] = useState(false);
 
   const toggleMobileMenu = () => {
     window.scrollTo({
@@ -54,7 +53,7 @@ const Navbar = () => {
   };
   const navLinks = [
     { path: "/", text: "Home" },
-    { path: "/orders", text: "Orders" },
+    { path: "/products", text: "Products" },
     { path: "/aboutUs", text: "About Us" },
   ];
 
@@ -139,6 +138,7 @@ const Navbar = () => {
           <div className="userLinks">
             {userLoggedIn ? (
               <>
+                <a href="#">Manage store</a>
                 <a href="#">Settings</a>
                 <a href="#" onClick={handleLogout}>
                   Logout
