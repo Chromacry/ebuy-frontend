@@ -15,10 +15,10 @@ import {
 import SiteLogo from "../../assets/images/projectxLogo.png";
 import DashboardComponent from "../Dashboard/Dashboard"; 
 // import AccountComponent from "../Account/Account";
-// import MembersComponent from "../Member/Member";
 // import InboxComponent from "../../pages/Inbox";
 import "./ConsoleBar.scss";
 import { Link } from "react-router-dom";
+import ManageOrder from "../../pages/ManageOrder/ManageOrder";
 import ManageProduct from "../../pages/ManageProduct/ManageProduct";
 
 const ConsoleBar = () => {
@@ -46,8 +46,8 @@ const ConsoleBar = () => {
         return <DashboardComponent />;
       case "Products":
         return <ManageProduct />;
-      case "Members":
-        return <MembersComponent />;
+      case "Orders":
+        return <ManageOrder />;
       case "Inbox":
         return <InboxComponent />;
       default:
@@ -112,10 +112,10 @@ const ConsoleBar = () => {
             <FontAwesomeIcon icon={faUser} /> {showText && "Products"}
           </li>
           <li
-            className={selectedItem === "Members" ? "selected" : ""}
-            onClick={() => handleItemClick("Members")}
+            className={selectedItem === "Orders" ? "selected" : ""}
+            onClick={() => handleItemClick("Orders")}
           >
-            <FontAwesomeIcon icon={faUsers} /> {showText && "Members"}
+            <FontAwesomeIcon icon={faUsers} /> {showText && "Orders"}
           </li>
           <li
             className={selectedItem === "Inbox" ? "selected" : ""}

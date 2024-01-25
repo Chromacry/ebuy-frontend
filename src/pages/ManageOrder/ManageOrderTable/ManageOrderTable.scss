@@ -1,0 +1,441 @@
+@import '../../../App.scss';
+
+.noDatafoundText{
+  width: 100%;
+  margin: 0 auto;
+  h5 {
+    font-size: 100%;
+    text-align: center;
+  }
+}
+.memberTable {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    color: white;
+    thead {
+      tr {
+
+
+        th {
+          padding: 10px;
+          text-align: center;
+          font-weight: bold;
+          color: $DarkPrimary;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        td {
+          padding: 10px;
+          text-align: center;
+
+
+          img {
+            width: 50px; 
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%; 
+          }
+
+          button {
+            all: unset;
+            padding: 10px;
+            cursor: pointer;
+          }
+
+          .memberEditBtn {
+            color: $CallToAction;
+
+            :hover {
+              color: $CallToActionHover;
+            }
+          }
+
+          .memberDeleteBtn {
+            color: $CallToAction2;
+
+            :hover {
+              color: $CallToActionHover2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pageNumbers {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: none;
+    height: 60px;
+
+    li {
+
+      cursor: pointer;
+      color: $DarkSecondary2;
+
+      &:hover {
+        color: $DarkPrimary;
+      }
+
+      &.current {
+        color: $DarkPrimary;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $DarkThemeNav;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+
+
+    .modalContent {
+      background-color: $DarkSecondary;
+      padding: 20px;
+      border-radius: 10px;
+      width: 40vw;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      .titleAndClose{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 0 30px 0;
+      h1 {
+        color: $DarkPrimary;
+        margin: 0;
+      }
+
+      .close {
+        font-size: 50px;
+        cursor: pointer;
+  
+        &:hover {
+          color: $DarkPrimary;
+        }
+      }
+      }
+
+
+      .editMemberForm {
+        width: 90%;
+        margin: 0 auto;
+
+        .inputField{
+          display: flex;
+          gap: 30px;
+          align-items: center;
+          justify-content: space-between;
+
+          label {
+          color: $DarkPrimary2;
+        }
+
+        input {
+          width: 70%;
+          border: none;
+          margin: 0 0 15px;
+        }
+
+        select {
+          background-color: $DarkSecondary2;
+          padding: 0 10px;
+          height: 45px;
+          border-radius: 10px;
+          border: none;
+          color: $DarkPrimary;
+        }
+        }
+
+        .formButtons {
+          margin: 10px 0 0 0;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          justify-content: flex-end;
+
+          button {
+            all: unset;
+            margin: 0 0 10px 0;
+            text-align: center;
+            padding: 0 10px;
+            line-height: 2.5em;
+            border-radius: 10px;
+            cursor: pointer;
+          }
+
+          :first-child {
+            background-color: $DarkSecondary2;
+            color: $DarkPrimary2;
+
+
+            &:hover {
+              background-color: $DarkSecondary2;
+              color: $DarkPrimary;
+            }
+          }
+
+          :nth-child(2) {
+            background-color: $CallToAction;
+            color: $LightPrimary;
+
+
+            &:hover {
+              color: $DarkPrimary;
+            }
+          }
+        }
+        .formMessage{
+          width: 90%;
+          color: $CallToAction;
+          margin: 0 auto;
+          padding: 20px 15px;
+          border: 1px solid $CallToAction;
+          border-radius: 10px;
+      }
+      .formErrorMessage{
+          width: 90%;
+          color: $Error;
+          margin: 0 auto;
+          padding: 20px 15px;
+          border: 1px solid $Error;
+          border-radius: 10px;
+      }
+      }
+
+      .DropArea {
+        border: 2px dashed $DarkSecondary2;
+        border-radius: 5px;
+        width: 40%;
+        padding: 20px;
+        text-align: center;
+        background-color: transparent;
+        cursor: pointer;
+        margin: 15px 0 15px 0;
+
+        &:hover {
+          border: 2px dashed $DarkPrimary;
+        }
+
+        &.with-image {
+          img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+          }
+        }
+
+        p {
+          color: #666;
+          font-size: 14px;
+        }
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+    }
+
+  }
+
+
+
+}
+
+.skeleton-row {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #838383;
+  background-image: linear-gradient(
+    90deg,
+    #838383,
+    #f5f5f5,
+    #838383
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+#light {
+
+  th {
+    color: $LightPrimary;
+  }
+
+  .pageNumbers {
+    li {
+
+      cursor: pointer;
+      color: $LightSecondary2;
+
+      &:hover {
+        color: $LightPrimary;
+      }
+
+      &.current {
+        color: $LightPrimary;
+      }
+    }
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $DarkThemeNav;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+
+
+    .modalContent {
+      background-color: $LightSecondary;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+      h1 {
+        color: $LightPrimary;
+      }
+
+      .editMemberForm {
+
+
+        label {
+          color: $DarkPrimary2;
+
+        }
+
+        input {
+
+          border: none;
+        }
+
+        select {
+          background-color: $LightSecondary2;
+          color: $LightPrimary;
+        }
+
+        .formButtons {
+
+
+          :first-child {
+            background-color: $CallToAction2;
+            color: $DarkPrimary;
+            &:hover {
+              background-color: $CallToActionHover2;
+            }
+          }
+
+          :nth-child(2) {
+            background-color: $CallToAction;
+            color: $DarkPrimary;
+
+            &:hover {
+              background-color: $CallToActionHover;
+            }
+          }
+        }
+
+      }
+
+      .DropArea {
+        border: 2px dashed $DarkSecondary2;
+
+
+        &:hover {
+          border: 2px dashed $DarkPrimary;
+        }
+
+        &.with-image {
+          img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+          }
+        }
+
+        p {
+          color: #666;
+
+        }
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+    }
+
+    .close {
+      float: right;
+      font-size: 50px;
+      cursor: pointer;
+
+      &:hover {
+        color: $LightPrimary;
+      }
+    }
+  }
+}
+
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff; // Add your preferred focus color
+    }
+  }
+
+  &:after {
+    content: '\25BC'; // Unicode character for down arrow
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
