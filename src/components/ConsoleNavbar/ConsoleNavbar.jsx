@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
@@ -6,12 +7,12 @@ import DefaultProfileImg from "../../assets/images/DefaultProfileImg.jpg";
 import "./ConsoleNavbar.scss";
 
 const ConsoleNavbar = ({ selectedItem, onItemClick }) => {
+  const navigate = useNavigate();
   const [popoverVisible, setPopoverVisible] = useState(false);
   const popoverRef = useRef(null);
   const iconRef = useRef(null);
-  const email = localStorage.getItem("Email");
-  const userName = localStorage.getItem("UserName");
-
+  let userInfo = localStorage.getItem("userInfo");
+  userInfo = JSON.parse(userInfo);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -40,6 +41,11 @@ const ConsoleNavbar = ({ selectedItem, onItemClick }) => {
     setPopoverVisible(false);
   };
 
+  const handleBackToStoreClick = () => {
+    setPopoverVisible(false);
+    navigate('/', { replace: true})
+  };
+
   return (
     <div className="ConsoleNavbarContainer">
       <div className="NavLeft">{selectedItem}</div>
@@ -54,13 +60,14 @@ const ConsoleNavbar = ({ selectedItem, onItemClick }) => {
               <div className="ProfileInfoContainer">
                 <img src={DefaultProfileImg} alt="" srcset="" />
                 <div>
-                  <p>{userName}</p>
-                  <p>{email}</p>
+                  <p>{userInfo?.username}</p>
+                  <p>{userInfo?.email}</p>
                 </div>
               </div>
 
               <hr />
               <div className="ProfilePopoverLinks">
+                <button onClick={handleBackToStoreClick}>Back to Store</button>
                 <button onClick={handleSettingsClick}>Settings</button>
                 <button>Logout</button>
               </div>

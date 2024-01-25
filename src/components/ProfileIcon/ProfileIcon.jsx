@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import DefaultProfileImg from "../../assets/images/DefaultProfileImg.jpg";
 import "./ProfileIcon.scss";
 
 const ProfileIcon = ({ selectedItem, onItemClick }) => {
+  const navigate = useNavigate();
   const isMobile = window.innerWidth <= 600;
   const [popoverVisible, setPopoverVisible] = useState(isMobile);
   const popoverRef = useRef(null);
@@ -50,6 +52,11 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
     setPopoverVisible(false);
   };
 
+  const handleManageStoreClick = () => {
+    navigate('/admin', { replace: true });
+    setPopoverVisible(false);
+  };
+
   const handleLogout = (event) => {
     event.stopPropagation(); // Prevents event from propagating to parent elements
     localStorage.removeItem("userInfo");
@@ -86,7 +93,7 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
           <div className="profilePopoverLinks">
           {userLoggedIn ? (
               <>
-                <button onClick={handleSettingsClick}>Manage Store</button>
+                <button onClick={handleManageStoreClick}>Manage Store</button>
                 <button onClick={handleSettingsClick}>Settings</button>
                 <button onClick={handleLogout}>Logout</button>
               </>
