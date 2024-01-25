@@ -1,0 +1,155 @@
+@import '../../App.scss';
+
+.product-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  padding: 40px 50px;
+}
+
+.imageContainer {
+  width: 30%;
+  border-radius: 22px;
+  object-fit: cover;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.store-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  img {
+    width: 50px; 
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%; 
+  }
+  h4 {
+    font-size: 120%;
+  }
+}
+.product-content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    font-weight: bold;
+    font-size: 190%;
+    margin: 0;
+  }
+
+  .ratingStars {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  p {
+    margin:0;
+    font-size: 120%;
+    font-weight: 500;
+    color: white;
+    margin-bottom: auto;
+  }
+  
+  .product-options {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+    h5 {
+      font-size: 120%;
+    }
+  }
+
+
+  button {
+    background-color: $CallToAction;
+    padding: 15px 50px;
+    width: 100%;
+    align-self: flex-end;
+    justify-content: flex-end;
+    border-radius: 11px;
+    color: white;
+    font-weight: bold;
+    font-size: 120%;
+    margin-top: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: $CallToActionHover;
+    }
+  }
+
+  .buttonsCallToAction {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    .buyNowButton {
+      background-color: orange;
+    padding: 15px 50px;
+
+    }
+  }
+
+  //* Quantity
+  .quantity-button {
+    height: max-content;
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  
+  .quantity-action {
+    margin-top: 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  
+  .quantity-display {
+    height: max-content;
+    margin: 0 10px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #007bff;
+    padding: 6px 8px; 
+    border-radius: 4px; 
+  }
+}
+
+
+
+
+
+@media only screen and (max-device-width: 600px) {
+  .wrapper {
+    max-width: 90%;
+    overflow: hidden;
+  }
+
+  .main {
+    background-image: url("../Img/banner.webp");
+    height: 45vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
