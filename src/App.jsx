@@ -4,6 +4,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/login";
+import Cart from "./pages/Cart/Cart";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Admin from "./pages/Admin/Admin";
 import { getUserApi } from "./services/APIs/UserApi";
@@ -73,6 +74,7 @@ const RouteChangeListener = () => {
               <Route path="/product-details/:productId" element={<ProductDetails />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/cart" element={<Cart />} />
               <Route path="/admin" element={
                 <ProtectedRoute>
                   <Admin />
