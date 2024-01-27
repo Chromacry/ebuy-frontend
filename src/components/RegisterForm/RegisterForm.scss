@@ -21,6 +21,8 @@
         .title{
             h1{
             color: $DarkPrimary;
+            display: flex;
+            flex-direction: column;
         }
         p{
             color: $DarkPrimary3;

@@ -13,7 +13,7 @@ import {
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import SiteLogo from "../../assets/images/projectxLogo.png";
-import DashboardComponent from "../Dashboard/Dashboard"; 
+import DashboardComponent from "../Dashboard/Dashboard";
 // import AccountComponent from "../Account/Account";
 // import InboxComponent from "../../pages/Inbox";
 import "./ConsoleBar.scss";
@@ -38,6 +38,16 @@ const ConsoleBar = () => {
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
+  };
+
+  const Logout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+        localStorage.removeItem("userInfo");
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 1500);
+    }
   };
 
   const renderSelectedComponent = () => {
@@ -93,10 +103,7 @@ const ConsoleBar = () => {
             )}
           </button>
         </div>
-        {/* <div className={`SwitchTheme ${showText ? "show-text" : ""}`}>
-          <p>Switch Theme</p>
-          <ThemeSwitch />
-        </div> */}
+
 
         <ul>
           <li
@@ -132,7 +139,7 @@ const ConsoleBar = () => {
               {showText && "Go to Site"}
             </button>
           </Link>
-          <button className="logout-button">
+          <button onClick={Logout} className="logout-button">
             <FontAwesomeIcon icon={faSignOutAlt} />
             {showText && "Logout"}
           </button>

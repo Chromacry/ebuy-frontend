@@ -10,6 +10,7 @@ import EditReview from "./pages/Review/EditReview/EditReview";
 
 
 import Cart from "./pages/Cart/Cart";
+import SellerRegister from "./pages/SellerRegister/SellerRegister";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Admin from "./pages/Admin/Admin";
@@ -86,6 +87,7 @@ const RouteChangeListener = () => {
               <Route path="/edit-review/:reviewId"  element={<EditReview/>}/>
 
               <Route path="/cart" element={<Cart />} />
+              <Route path="/seller" element={<SellerRegister/>} />
               <Route path="/admin" element={
                 <ProtectedRoute>
                   <Admin />

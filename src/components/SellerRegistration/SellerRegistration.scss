@@ -1,0 +1,42 @@
+@import '../../App.scss';
+
+.sellerRegistrationContainer{
+    height: auto;
+    background-color: $Accent;
+    .flexContainer{
+        padding: 5px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            color: $LightPrimary;
+        }
+        button{
+            all: unset;
+            padding: 10px 15px;
+            background-color: $LightPrimary;
+            color: $DarkPrimary;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover{
+                background-color: $AccentHover;
+                color: $LightPrimary;
+            }
+        }
+    }
+}
+
+#light{
+    .sellerRegistrationContainer{
+        background-color: $AccentHover;
+        button{
+            background-color: $LightPrimary;
+            color: $DarkPrimary;
+            cursor: pointer;
+            &:hover{
+                background-color: $Accent;
+                color: $LightPrimary;
+            }
+        }
+    }
+}
