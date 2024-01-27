@@ -15,10 +15,11 @@ const ManageTable = ({
   dataCount,
   handlePagination,
   isModalOpen,
-  handleModalIsOpen,
+    handleModalIsOpen,
   isLoading,
   handleEdit,
   handleDelete,
+  handleDeleteMessage,
 
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,7 +117,10 @@ const ManageTable = ({
                   </button>
                   <button
                     className="memberDeleteBtn"
-                    onClick={() => handleDelete(data?.id)}
+                    onClick={() =>{
+                      const confirmed = window.confirm(handleDeleteMessage ?? 'No message available');
+                      if (confirmed) handleDelete(data?.id);
+                    } }
                   >
                     <FontAwesomeIcon icon={faTrashAlt} />
                   </button>

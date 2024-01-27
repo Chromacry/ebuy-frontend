@@ -124,11 +124,6 @@ function ManageProduct() {
   };
 
   const deleteProduct = async (itemId) => {
-    const isConfirmed = window.confirm(
-      "Are you sure you want to delete this product?"
-    );
-
-    if (isConfirmed) {
       try {
         const response = await deleteProductApi(itemId);
         if (response.status === 200) {
@@ -143,7 +138,6 @@ function ManageProduct() {
         console.error("Error deleting member:", error);
         setErrorMessage("An error occurred while deleting the product.");
       }
-    }
   };
   const closeModal = () => {
     setIsModalOpen(false);
@@ -195,6 +189,7 @@ function ManageProduct() {
         ]}
         handleModalIsOpen={(openStatus) => setIsModalOpen(openStatus)}
         handleDelete={deleteProduct}
+        handleDeleteMessage={"Are you sure you want to delete this product?"}
         handleEdit={updateProduct}
         handleCloseModal={closeModal}
       />
