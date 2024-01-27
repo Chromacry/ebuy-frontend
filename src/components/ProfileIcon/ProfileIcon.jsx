@@ -58,7 +58,7 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
   };
 
   const handleLogout = (event) => {
-    event.stopPropagation(); // Prevents event from propagating to parent elements
+    event.stopPropagation();
     localStorage.removeItem("userInfo");
     setTimeout(() => {
       window.location.href = "/";
@@ -90,10 +90,13 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
           {userLoggedIn && <hr />}
 
 
+
           <div className="profilePopoverLinks">
-          {userLoggedIn ? (
+            {userLoggedIn ? (
               <>
-                <button onClick={handleManageStoreClick}>Manage Store</button>
+                {userInfo && userInfo.is_seller === 1 && (
+                  <button onClick={handleManageStoreClick}>Manage Store</button>
+                )}
                 <button onClick={handleSettingsClick}>Settings</button>
                 <button onClick={handleLogout}>Logout</button>
               </>

@@ -18,7 +18,7 @@ class APIService {
             // }
             
             const responseData = await response.json();
-            console.log(responseData)
+            // console.log(responseData)
             return responseData;
         } catch (error) {
             return error;
