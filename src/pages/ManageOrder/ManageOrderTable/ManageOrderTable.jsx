@@ -115,7 +115,7 @@ const ManageTable = ({
                   <td>{data?.username}</td>
                   <td>{convertToReadableDateTime(data?.created_time)}</td>
                   <td>{data?.order_quantity}</td>
-                  <td>{data?.order_quantity}</td>
+                  <td>{data?.product_price}</td>
                   <td>
                     <div className="custom-dropdown">
                       <select

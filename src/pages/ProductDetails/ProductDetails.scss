@@ -6,7 +6,94 @@
   gap: 10%;
   padding: 40px 50px;
 }
-
+.review-wrapper{
+  justify-content: center;
+  gap: 10px;
+  width: 48%;
+  margin: 0 auto;
+  .addReviewButton{
+    height: auto;
+    color:white;
+    border: none;
+    font-size: 100%;
+    background-color: $CallToAction;
+    padding:  15px 20px;
+    &:hover {
+      background-color: $CallToActionHover;
+    }
+  }
+}
+.review-card{
+  background-color: $DarkSecondary;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  h2{
+    margin: auto;
+    color: white;
+    width: 100%;
+    font-size: 155%;
+  }
+  h3{
+    color: grey;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .review-content-text{
+    color: white;
+    font-weight: normal;
+  }
+  p{
+    margin-top: 0;
+    color: white;
+    font-size: large;
+    overflow-wrap: break-word;
+  }
+  .reviewImage{
+    width: 150px;
+    height: 150px;
+  } 
+  .image-text{
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+  }
+  
+}
+.poster-button-container{
+  display: flex;
+  flex-direction: column;
+  gap :10px;
+  justify-content: center;
+  align-items: center;
+  .iconButton{
+    all:unset;
+    cursor: pointer;
+  }
+}
+.pfp-container{
+  border-radius: 50%;
+  object-fit: cover;
+  img {
+    width: 100%;
+  }
+  width: 6%;
+}
+.header-container{
+  display: flex;
+  flex-direction: row;
+  button{
+    color: white;
+    cursor: pointer;
+    padding: 10px 30px;
+    background-color: blue;
+    height: 2rem;
+    margin: auto 0 auto auto;
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: 120%;
+  }
+}
 .imageContainer {
   width: 30%;
   border-radius: 22px;
@@ -17,6 +104,17 @@
   }
 }
 
+.pfp-name-container{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+}
+.rating-container{
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0rem 0rem 0rem;
+  margin-bottom: 0.7rem;
+}
 .store-profile {
   display: flex;
   align-items: center;
@@ -45,7 +143,7 @@
   .ratingStars {
     display: flex;
     align-items: center;
-    gap: 20px;
+    padding: 1rem 1rem 1rem 0rem;
     margin-bottom: 50px;
   }
 
@@ -133,6 +231,7 @@
     padding: 6px 8px; 
     border-radius: 4px; 
   }
+  
 }
 
 
