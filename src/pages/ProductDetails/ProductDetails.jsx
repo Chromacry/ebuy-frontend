@@ -18,6 +18,7 @@ import {
   faTrash,
   faStarHalfAlt,
 } from "@fortawesome/free-solid-svg-icons";
+
 import {
   addItemToCart,
   updateItemQuantityFromCart,
@@ -95,6 +96,10 @@ const ProductDetails = () => {
     };
     addItemToCart(body);
   };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
   const navigateToAddReview = () => {
     navigate(
       `/add-review/${convertToSlug(productDetails?.product_name)}-i${
@@ -185,6 +190,7 @@ const ProductDetails = () => {
     getUsers(getReviewUsers());
   }, [reviews]);
   console.log(users);
+
   return (
     <div className="body">
       <Navbar />
