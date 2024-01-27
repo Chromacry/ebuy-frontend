@@ -1,289 +1,292 @@
 @import '../../App.scss';
 
-.wrapper {
-  max-width: 90%;
-  overflow-x: hidden;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.heroSection {
-  width: 100%;
-  background-color: $Accent2;
-
-  height: 70vh;
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-
-    img {
-      width: 55vw;
-      padding: 20px;
-    }
-
-    .text {
-      width: 40vw;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-
-      h1 {
-        font-size: 60px;
-        color: $DarkPrimary;
-        display: flex; // Aligns children inline and on the same baseline
-        align-items: center;
-      }
-
-      p {
-        color: $DarkPrimary3;
-        margin-left: 60px;
-      }
-
-      button {
-        all: unset;
-        background-color: $Accent;
-        padding: 10px 15px;
-        border-radius: 10px;
-        margin-top: 30px;
-        margin-left: 10vw;
-      }
-    }
-  }
-
-
-}
-
-.typewriter {
-  display: inline-block;
-  white-space: nowrap; // Keeps the text in a single line
-  overflow: hidden; // Hides the overflow text
-  border-right: 3px solid; // Simulates the typewriter cursor
-  animation: blinkCursor 0.75s steps(40) infinite normal; // Cursor blink effect
-}
-
-@keyframes blinkCursor {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.arrowBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 1;
-  top: 280px;
-  height: 250px;
-  width: 120px; 
-  background-color: transparent;
-  border: solid $Accent;
-  border-width: 0 0 3px 3px;
-}
-
-
-
-
-
-@media only screen and (max-device-width: 600px) {
+.cartBody{
   .wrapper {
     max-width: 90%;
     overflow-x: hidden;
     margin-right: auto;
     margin-left: auto;
   }
-
-  .main {
-    background-image: url("../Img/banner.webp");
-    height: 45vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-
-.cart-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-  }
   
-
-  .cart-box {
-    background-color: #001620;
-    padding: 20px;
-    border: 3px solid #001620;
-    margin-bottom: 20px;
-    border-radius: 15px;
-  }
-
+  .heroSection {
+    width: 100%;
+    background-color: $Accent2;
   
-  .cart-title {
-    color: white;
-    font-size: 40px;
-    margin-top: 10px;
-  }
-
-  .cart-item {
-    display: flex;
-    align-items: flex-start; /* Align items at the start of the flex container */
-    margin-bottom: 20px;
+    height: 70vh;
   
-    .cart-container {
-      flex: 1; /* Take up remaining space */
-      margin-right: 20px; /* Add margin between image and content */
-    }
-}
-
-.cart-item-image {
-  width: 20px; /* Set your desired width */
-  height: auto; /* Set your desired height */
-}
-
-  .quantity {
-    display: flex;
-    flex-direction: column;
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
   
-    label {
-      margin-bottom: 5px;
-      color: white;
+      img {
+        width: 55vw;
+        padding: 20px;
+      }
+  
+      .text {
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+  
+        h1 {
+          font-size: 60px;
+          color: $DarkPrimary;
+          display: flex; // Aligns children inline and on the same baseline
+          align-items: center;
+        }
+  
+        p {
+          color: $DarkPrimary3;
+          margin-left: 60px;
+        }
+  
+        button {
+          all: unset;
+          background-color: $Accent;
+          padding: 10px 15px;
+          border-radius: 10px;
+          margin-top: 30px;
+          margin-left: 10vw;
+        }
+      }
     }
   
-    input {
-      width: 60px;
-      padding: 5px;
-      font-size: 16px;
-      color: black;
+  
+  }
+  
+  .typewriter {
+    display: inline-block;
+    white-space: nowrap; // Keeps the text in a single line
+    overflow: hidden; // Hides the overflow text
+    border-right: 3px solid; // Simulates the typewriter cursor
+    animation: blinkCursor 0.75s steps(40) infinite normal; // Cursor blink effect
+  }
+  
+  @keyframes blinkCursor {
+    50% {
+      border-color: transparent;
     }
   }
-
-  .checkout-button {
-    all: unset;
-    background-color: $Accent;
-    padding: 10px 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  .cart-container {
-    width: 30%;
-    border-radius: 22px;
-    object-fit: cover;
-    overflow: hidden;
-    img {
-      width: 100%;
-    }
-  }
-
-  .store-profile {
+  
+  .arrowBox {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 30px;
-    img {
-      width: 50px; 
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%; 
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 280px;
+    height: 250px;
+    width: 120px; 
+    background-color: transparent;
+    border: solid $Accent;
+    border-width: 0 0 3px 3px;
+  }
+  
+  
+  
+  
+  
+  @media only screen and (max-device-width: 600px) {
+    .wrapper {
+      max-width: 90%;
+      overflow-x: hidden;
+      margin-right: auto;
+      margin-left: auto;
     }
-    h4 {
-      font-size: 120%;
+  
+    .main {
+      background-image: url("../Img/banner.webp");
+      height: 45vh;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
   }
-
-  .order-content {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    h2 {
-      font-weight: bold;
-      font-size: 190%;
-      margin: 0;
+  
+  .cart-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
     }
     
-    .order-options {
+  
+    .cart-box {
+      background-color: #001620;
+      padding: 20px;
+      border: 3px solid #001620;
+      margin-bottom: 20px;
+      border-radius: 15px;
+    }
+  
+    
+    .cart-title {
+      color: white;
+      font-size: 40px;
+      margin-top: 10px;
+    }
+  
+    .cart-item {
       display: flex;
-      justify-content: start;
+      align-items: flex-start; /* Align items at the start of the flex container */
+      margin-bottom: 20px;
+    
+      .cart-container {
+        flex: 1; /* Take up remaining space */
+        margin-right: 20px; /* Add margin between image and content */
+      }
+  }
+  
+  .cart-item-image {
+    width: 20px; /* Set your desired width */
+    height: auto; /* Set your desired height */
+  }
+  
+    .quantity {
+      display: flex;
+      flex-direction: column;
+    
+      label {
+        margin-bottom: 5px;
+        color: white;
+      }
+    
+      input {
+        width: 60px;
+        padding: 5px;
+        font-size: 16px;
+        color: black;
+      }
+    }
+  
+    .checkout-button {
+      all: unset;
+      background-color: $Accent;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .cart-container {
+      width: 30%;
+      border-radius: 22px;
+      object-fit: cover;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+  
+    .store-profile {
+      display: flex;
       align-items: center;
-      gap: 50px;
-      h5 {
+      gap: 20px;
+      margin-bottom: 30px;
+      img {
+        width: 50px; 
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%; 
+      }
+      h4 {
         font-size: 120%;
       }
     }
   
-    //* Quantity
-    .quantity-button {
-      height: max-content;
+    .order-content {
+      color: white;
       display: flex;
-      align-self: center;
-      flex-direction: row;
-      align-items: flex-end;
-    }
+      flex-direction: column;
+      h2 {
+        font-weight: bold;
+        font-size: 190%;
+        margin: 0;
+      }
+      
+      .order-options {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 50px;
+        h5 {
+          font-size: 120%;
+        }
+      }
     
-    .quantity-action {
-      margin-top: 0;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    
-      &:hover {
-        background-color: #0056b3;
+      //* Quantity
+      .quantity-button {
+        height: max-content;
+        display: flex;
+        align-self: center;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+      
+      .quantity-action {
+        margin-top: 0;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+      
+      .quantity-display {
+        height: max-content;
+        margin: 0 10px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid #007bff;
+        padding: 6px 8px; 
+        border-radius: 4px; 
       }
     }
+  
+    button {
+      background-color: $CallToAction;
+      padding: 15px 50px;
+      width: 100%;
+      align-self: flex-end;
+      justify-content: flex-end;
+      border-radius: 11px;
+      color: white;
+      font-weight: bold;
+      font-size: 120%;
+      margin-top: auto;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: $CallToActionHover;
+      }
+    }
+  
+    .buttonsCallToAction {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
     
-    .quantity-display {
-      height: max-content;
-      margin: 0 10px;
-      font-size: 18px;
-      text-align: center;
-      border: 1px solid #007bff;
-      padding: 6px 8px; 
-      border-radius: 4px; 
-    }
-  }
-
-  button {
-    background-color: $CallToAction;
-    padding: 15px 50px;
-    width: 100%;
-    align-self: flex-end;
-    justify-content: flex-end;
-    border-radius: 11px;
-    color: white;
-    font-weight: bold;
-    font-size: 120%;
-    margin-top: auto;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    &:hover {
-      background-color: $CallToActionHover;
-    }
-  }
-
-  .buttonsCallToAction {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
+    
+    
+    /* Add any additional styling for the summary and options boxes as needed */
+    
   
   
   
-  /* Add any additional styling for the summary and options boxes as needed */
   
-
-
-
-
-
-
   
+  
+    
+}
+
