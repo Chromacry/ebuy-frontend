@@ -124,7 +124,7 @@ export default function Cart() {
   }, [orderQuantity]);
 
   return (
-    <div className="body">
+    <div className="cartBody">
       {successMessage ? (
         <Toast
           message={successMessage}

@@ -5,7 +5,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 
 function Login() {
   return (
-    <div className="body">
+    <div className="loginBody">
       
       <section className="loginContainer">
 

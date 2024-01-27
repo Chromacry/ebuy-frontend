@@ -1,291 +1,264 @@
 @import '../../App.scss';
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: max-content;
-  background-color: $DarkThemeNav;
-  backdrop-filter: blur(10px);
-  margin: auto;
-  padding: 15px 50px 15px 50px;
-  transition: background-color 0.3s ease;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  gap:15px
-}
-
-#light .navbar{
-  background-color: $LightThemeNav;
-}
-
-
-.navbarContainer{
+.navbarContainer {
   position: sticky;
   top: 0;
   left: 0;
 
-}
-
-.logo {
-  width: 50px;
-  border-radius: 10px;
-}
-
-.hamburgMenu {
-  display: none;
-}
-
-.mobileMenuActive{
-  display: none;
-}
-
-
-.links{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.links a {
-  color: $DarkPrimary;
-  text-decoration: none;
-  text-align: center;
-  padding-right: 55px;
-  font-weight:400;
-  font-size: 20px;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-
-}
-
-#light .links a {
-color: $LightPrimary;
-}
-.active{
-  color: $DarkSecondary2!important;
-  pointer-events: none;
-}
-
-#light .active{
-  color: $LightSecondary2!important;
-}
-
-#light .links a::after{
-  background-color: $LightPrimary;
-}
-
-
-
-
-.links a::after {
-  content: '';
-  width: 0%;
-  height: 3px;
-  bottom: 0;
-  background: $DarkPrimary;
-  display: block;
-  margin: auto;
-  transition: 0.5s;
-}
-
-.links a:hover::after {
-  width: 100%;
-}
-
-.iconContainer{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-
-  button{
-    all: unset;
-    svg{
-      font-size: 30px;
-      color: white;
-    }
-    
-  }
-}
-
-
-#light .iconContainer {
-  .cartButton svg{
-    color: black;
-  }
-  
-}
-.mobileMenu{
-  display: none;
-}
-
-
-
-
-
-@media only screen and (max-device-width: 600px) {
-  .logo{
-    width: 50px;
-  }
-  .navbar{
-    display: none;
-  }
-
-  .closeAndToggle{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 7px;
-  }
-  
-  
-  .navbarContainer{
-    position: sticky;
-    top: 0;
-    z-index: 9;
-  }
-
-  .mobileMenu{
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: max-content;
-    background-color:$DarkThemeNav;
+    background-color: $DarkThemeNav;
     backdrop-filter: blur(10px);
     margin: auto;
-    padding: 15px 50px 15px 50px;
+    padding: 15px 50px;
     transition: background-color 0.3s ease;
-  }
-
-  #light .mobileMenu{
-    background-color: $LightThemeNav;
-  }
-.hamburgMenu {
-    display: block;
-    svg{
-      font-size: 30px;
-      color: $DarkPrimary;
-    }
-  }
-
-  #light .hamburgMenu{
-    svg{
-      color: $LightPrimary;
-    }
-  }
-
-.mobileMenuActive{
-  display: block;
     position: sticky;
-    z-index: 101;
     top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);  
-    height: 100vh;
-    padding: 20px 50px 15px 50px;
+    z-index: 100;
+    gap: 15px;
+
+    .logo {
+      width: 50px;
+      border-radius: 10px;
+    }
   }
 
-  #light .mobileMenuActive{
-    background-color: $LightThemeNav;
-  }
-  
-  .hidden {
+  .hamburgMenu {
     display: none;
   }
 
-  
+  .mobileMenuActive {
+    display: none;
+  }
 
-  .mobileMenuClose{
-    svg{
-      font-size: 30px;
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
       color: $DarkPrimary;
+      text-decoration: none;
+      text-align: center;
+      padding-right: 55px;
+      font-weight: 400;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        width: 0%;
+        height: 3px;
+        bottom: 0;
+        background: $DarkPrimary;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      &.active {
+        color: $DarkSecondary2 !important;
+        pointer-events: none;
+      }
     }
-    
   }
 
-  #light .mobileMenuClose{
-    svg{
-      color: $LightPrimary;
+  .mobileMenu {
+    display: none;
+  }
+
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    button {
+      all: unset;
+
+      svg {
+        font-size: 30px;
+        color: white;
+      }
     }
   }
 
-
-.mobileMenuLinks {
-  display: flex;
-  flex-direction: column;
-  padding: 30px 0;
-  justify-content: space-between;
-  .searchContainer{
-    margin-bottom: 30px;
-  }
-  a{
-    color: $DarkPrimary3;
-    text-decoration: none;
-    margin-bottom: 30px;
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  .links{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .userLinks{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 50px;
-  }
-
-}
-
-
-
-.userInfo {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 30px;
-
-  img {
-      border-radius: 100%;
+  @media only screen and (max-device-width: 600px) {
+    .logo {
       width: 50px;
-      filter: invert(0);
+    }
+
+    .navbar {
+      display: none;
+    }
+
+    .closeAndToggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 7px;
+    }
+
+    .mobileMenu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: max-content;
+      background-color: $DarkThemeNav;
+      backdrop-filter: blur(10px);
+      margin: auto;
+      padding: 15px 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hamburgMenu {
+      display: block;
+      svg {
+        font-size: 30px;
+        color: $DarkPrimary;
+      }
+    }
+
+    .mobileMenuActive {
+      display: block;
+      position: sticky;
+      z-index: 101;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);  
+      height: 100vh;
+      padding: 20px 50px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .mobileMenuClose {
+      svg {
+        font-size: 30px;
+        color: $DarkPrimary;
+      }
+    }
+
+    .mobileMenuLinks {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 0;
+      justify-content: space-between;
+
+      .searchContainer {
+        margin-bottom: 30px;
+      }
+
+      a {
+        color: $DarkPrimary3;
+        text-decoration: none;
+        margin-bottom: 30px;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .userLinks {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 50px;
+      }
+
+      .userInfo {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 30px;
+
+        img {
+          border-radius: 100%;
+          width: 50px;
+          filter: invert(0);
+        }
+
+        p {
+          color: $DarkPrimary2;
+        }
+      }
+    }
   }
-  p{
-    color: $DarkPrimary2;
+}
+
+#light {
+  .navbar {
+    background-color: $LightThemeNav;
   }
-}
 
+  .links a {
+    color: $LightPrimary;
 
-#light .userInfo{
-  img{
-    filter: invert(1);
+    &::after {
+      background-color: $LightPrimary;
+    }
+
+    &.active {
+      color: $LightSecondary2 !important;
+    }
   }
-  p{
-    color: $DarkPrimary3;
+
+  .iconContainer {
+    .cartButton svg {
+      color: black;
+    }
   }
-}
 
+  .mobileMenu {
+    background-color: $LightThemeNav;
+  }
 
+  .hamburgMenu svg {
+    color: $LightPrimary;
+  }
 
-#light .mobileMenuLinks a{
-color: $LightPrimary2;
-}
+  .mobileMenuActive {
+    background-color: $LightThemeNav;
+  }
 
-.active{
-  color: $DarkPrimary!important;
-}
+  .mobileMenuClose svg {
+    color: $LightPrimary;
+  }
 
-#light .active{
-  color: $LightPrimary!important;
-}
+  .mobileMenuLinks {
+    a {
+      color: $LightPrimary2;
+    }
 
+    .userInfo {
+      img {
+        filter: invert(1);
+      }
 
+      p {
+        color: $DarkPrimary3;
+      }
+    }
+  }
 
+  .active {
+    color: $LightPrimary !important;
+  }
 }
