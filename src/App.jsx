@@ -3,6 +3,8 @@ import "./App.scss";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/login";
+import AddReview from "./pages/Review/AddReview/AddReview";
+import EditReview from "./pages/Review/EditReview/EditReview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin/Admin";
 import { getUserApi } from "./services/APIs/UserApi";
@@ -48,6 +50,8 @@ if(localStorage.getItem("userInfo")){
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/add-review/:productId" element={<AddReview/>}/>
+              <Route path="/edit-review/:reviewId"  element={<EditReview/>}/>
             </Routes>
           </BrowserRouter>
         </div>
