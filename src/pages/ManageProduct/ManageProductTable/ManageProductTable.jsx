@@ -15,7 +15,7 @@ const ManageTable = ({
   dataCount,
   handlePagination,
   isModalOpen,
-  handleModalIsOpen,
+    handleModalIsOpen,
   isLoading,
   handleEdit,
   handleDelete,

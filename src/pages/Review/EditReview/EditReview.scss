@@ -1,0 +1,75 @@
+.loginContainer{
+  // background-image: url(../../assets/images/banner2.png);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+      .flexContainer{
+          display: flex;
+          flex-direction: column;
+          margin: 0 auto;
+          align-items:normal;
+          margin: 0 auto;
+          height: 85vh;
+          width: 55%;
+          justify-content:start;
+          gap:0;
+          .product-img-name-container{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            h3{
+              display: flex;
+              color: white;
+              align-items: center;
+            }
+          }
+          img{
+            height: 100px;
+            width: 100px;
+            border-radius: 20px;
+          }
+          h1{
+            color: white;
+          }
+          h2{
+            color: white;
+          }
+          .headline-area{
+            font-size: 1rem;
+            box-sizing: border-box;
+          }
+          .content-area{
+            height: 20%;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+          }
+          .image-drop-area{
+            height: 150px;
+            width: 150px;
+            border-radius: 10px;
+            border: 2px dashed #ccc;
+            justify-content: center;
+            align-items: center; 
+            display: flex;
+            cursor: pointer;
+          }
+          .submit-button{
+            color: white;
+            cursor: pointer;
+            padding: 10px 30px;
+            background-color: orange;
+            margin: 20px 0 auto auto;
+            border-radius: 11px;
+            font-weight: bold;
+            font-size: 120%;
+          }
+          .addReviewForm{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }     
+      }
+}
