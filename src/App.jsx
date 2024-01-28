@@ -3,7 +3,7 @@ import "./App.scss";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
-import Login from "./pages/Login/login";
+import Login from "./pages/Login/Login";
 
 import AddReview from "./pages/Review/AddReview/AddReview";
 import EditReview from "./pages/Review/EditReview/EditReview";

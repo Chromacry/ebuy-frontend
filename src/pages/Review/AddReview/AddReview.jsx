@@ -6,7 +6,7 @@ import { useLocation, useParams , useNavigate} from "react-router-dom";
 import StarSelector from "../../../components/StarSelector/StarSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/utils/ImageEncodingUtil";
 import { addReviewApi } from "../../../services/APIs/ReviewApi";
 import { convertToSlug } from "../../../utils/URLUtil";
 function AddReview() {
