@@ -23,6 +23,7 @@ import {
   updateItemQuantityFromCart,
 } from "../../utils/CartUtil";
 import "../ManageProduct/ManageProductTable/ManageProductTable.scss";
+import ReviewsDisplay from "../../components/ReviewsDisplay/ReviewsDisplay";
 const ProductDetails = () => {
   const { productId } = useParams();
   const indexOfLastI = productId.lastIndexOf("i");
@@ -33,7 +34,7 @@ const ProductDetails = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [reviews, setReviews] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [updateKey,setUpdateKey] = useState(0);
   const navigate = useNavigate();
   const getProduct = async () => {
     try {
@@ -56,9 +57,9 @@ const ProductDetails = () => {
       const response = await getReviewByIdApi(itemId);
       if (response?.status === 200) {
         setSuccessMessage(response.message);
+        console.log(response);
         const resApiData = response.data;
         setReviews(resApiData);
-        setIsLoading(false);
       } else {
         setErrorMessage(response.message);
       }
@@ -68,25 +69,7 @@ const ProductDetails = () => {
     }
   };
 
-  const getUsers = async (userIds) => {
-    try {
-      console.log(userIds);
-      let body = {
-        userIds: userIds,
-      };
-      const response = await getUsersByUserIdApi(body);
-      if (response?.status === 200) {
-        setSuccessMessage(response.message);
-        const resApiData = response.data;
-        setUsers(resApiData);
-      } else {
-        setErrorMessage(response.message);
-      }
-    } catch (error) {
-      console.error("Error retrieving review:", error);
-      setErrorMessage("An error occurred while retrieving the review.");
-    }
-  };
+
   const addProductToCart = async () => {
     const body = {
       product_id: itemId,
@@ -103,9 +86,7 @@ const ProductDetails = () => {
       { replace: true }
     );
   };
-  const navigateToEditReview = (reviewId) => {
-    navigate(`/edit-review/${reviewId}`, { replace: true });
-  };
+
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const halfStars = Math.ceil(rating - fullStars);
@@ -137,24 +118,7 @@ const ProductDetails = () => {
 
     return stars;
   };
-  const deleteReview = async (reviewId) => {
-    if (window.confirm("Are you sure you want to delete your review?.")) {
-      try {
-        const response = await deleteReviewApi(reviewId);
-        if (response?.status === 200) {
-          setSuccessMessage(response.message);
-          const resApiData = response.data;
-          getReviews();
-          setIsLoading(false);
-        } else {
-          setErrorMessage(response.message);
-        }
-      } catch (error) {
-        console.error("Error deleting review:", error);
-        setErrorMessage("An error occurred while deleting the review.");
-      }
-    }
-  };
+
   const calculateRatingAverage = () => {
     let ratingAvg = 0;
     reviews?.forEach((review) => {
@@ -163,28 +127,18 @@ const ProductDetails = () => {
     ratingAvg = ratingAvg / reviews?.length;
     return ratingAvg;
   };
-  const convertDate = (isoDateString) => {
-    const date = new Date(isoDateString);
+  
 
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
-      date
-    );
-    return formattedDate;
-  };
-  const getReviewUsers = () => {
-    const userIDs = reviews.map((review) => review.user_id);
-    return userIDs;
-  };
-  console.log(getReviewUsers());
+  let currentUserId = JSON.parse(localStorage?.getItem('userInfo'))?.id;
+
   useEffect(() => {
     getProduct();
     getReviews();
   }, []);
-  useEffect(() => {
-    getUsers(getReviewUsers());
-  }, [reviews]);
-  console.log(users);
+  useEffect(()=>{
+    getReviews()
+  },[updateKey])
+  console.log(productDetails);
   return (
     <div className="body">
       <Navbar />
@@ -220,7 +174,6 @@ const ProductDetails = () => {
                   )
                 }
               >
-                -
               </button>
               <span className="quantity-display">{productQuantity}</span>
               <button
@@ -251,69 +204,7 @@ const ProductDetails = () => {
         </div>
 
         <br></br>
-        {reviews.map((review) => (
-          <div className="review-card">
-            <div className="pfp-name-container">
-              <img
-                className="pfp-container"
-                src={
-                  users.find((user) => user.id === review.user_id)
-                    ?.profile_image || productDetails?.product_image
-                }
-                alt={
-                  users.find((user) => user.id === review.user_id)?.username ||
-                  productDetails?.product_name
-                }
-              />
-              <h2>
-                {users.find((user) => user.id === review.user_id)?.username ||
-                  "Username"}
-              </h2>
-              {review?.user_id ==
-              JSON.parse(localStorage?.getItem("userInfo")).id ? (
-                <div className="poster-button-container">
-                  <button
-                    className="iconButton"
-                    onClick={() => navigateToEditReview(review.id)}
-                  >
-                    <FontAwesomeIcon
-                      icon={faEdit}
-                      color="orange"
-                      fontSize={27}
-                    />
-                  </button>
-                  <button
-                    className="iconButton"
-                    onClick={() => deleteReview(review.id)}
-                  >
-                    <FontAwesomeIcon icon={faTrash} color="red" fontSize={27} />
-                  </button>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-            <div className="rating-container">
-              {renderStars(review?.rating)}
-            </div>
-            <h3>
-              Reviewed in Singapore on {convertDate(review?.created_time)}
-            </h3>
-            <h3 className="review-content-text">{review.content}</h3>
-            {review?.review_image &&
-            /^data:image\/[a-z]+;base64,/.test(review?.review_image) ? (
-              <div className="reviewImageContainer">
-                <p className="image-text">Attached image:</p>
-                <img
-                  className="reviewImage"
-                  src={`${review?.review_image}`}
-                ></img>
-              </div>
-            ) : (
-              <></>
-            )}
-          </div>
-        ))}
+        <ReviewsDisplay reviews={reviews}  currentUserId={currentUserId} updateKey={updateKey} setUpdateKey={setUpdateKey}/>
       </div>
     </div>
   );
