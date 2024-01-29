@@ -1,119 +1,111 @@
 @import "../../App.scss";
+
 .ConsoleNavbarContainer {
-    display: flex;
-    position: sticky;
-    padding: 0 20px 0 20px;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    height: 80px;
-    background-color: $DarkThemeNav;
-    backdrop-filter: blur(10px);
-    align-items: center;
-    justify-content: space-between;
-    color: $DarkPrimary;
-}
+  display: flex;
+  position: sticky;
+  padding: 0 20px;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background-color: $DarkThemeNav;
+  backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: space-between;
+  color: $DarkPrimary;
 
-#light .ConsoleNavbarContainer {
-    background-color: $LightThemeNav;
-    color: $LightPrimary;
-}
-
-.NavLeft {
+  .NavLeft {
     font-weight: bold;
     font-size: 40px;
-}
+  }
 
-.NavRight {
+  .NavRight {
     display: flex;
     gap: 30px;
-}
 
-.ProfilePopover {
-    position: absolute;
-    top: 100%;
-    right: 15px;
-    background-color: $DarkSecondary;
-    width: 250px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    color: $DarkPrimary2;
-}
-#light .ProfilePopover{
-    background-color: $LightSecondary;
+    .profile-icon {
+      cursor: pointer;
+
+      svg {
+        font-size: 30px;
+      }
+
+      .ProfilePopover {
+        position: absolute;
+        top: 100%;
+        right: 15px;
+        background-color: $DarkSecondary;
+        width: 250px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        color: $DarkPrimary2;
+
+        .ProfileInfoContainer {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          img {
+            border-radius: 100%;
+            max-width: 60px;
+          }
+
+          p {
+            margin: 0 0 5px 0;
+            user-select: none;
+          }
+        }
+
+        hr {
+          width: 100%;
+          border: solid 1px $DarkPrimary2;
+        }
+
+        .ProfilePopoverLinks {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          padding-top: 10px;
+
+          button {
+            padding: 10px 0;
+            text-decoration: none;
+            text-align: left;
+            font-size: 15px;
+            color: $DarkPrimary2;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background-color: transparent;
+
+            &:hover {
+              color: $DarkPrimary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #light & {
+    background-color: $LightThemeNav;
     color: $LightPrimary;
-}
 
-.ProfileInfoContainer{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+    .ProfilePopover {
+      background-color: $LightSecondary;
+      color: $LightPrimary;
+    }
 
-}
+    .ProfilePopoverLinks button:hover {
+      color: $LightPrimary;
+    }
 
-
-.ProfileInfoContainer img{
-    border-radius: 100%;
-}
-
-#light .ProfileInfoContainer img{
-    filter: invert(1);
-}
-.ProfilePopover hr{
-    width: 100%;
-    border: solid 1px $DarkPrimary2;
-}
-
-.ProfilePopoverLinks{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    padding: 10px 0 0 0;
-}
-.ProfilePopoverLinks button{
-    padding: 10px 0 10px 0;
-    text-decoration: none;
-    text-align: left;
-    font-size: 15px;
-    color: $DarkPrimary2;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: transparent;
-}
-.ProfilePopoverLinks button:hover{
-    color: $DarkPrimary;
-}
-
-#light .ProfilePopoverLinks button:hover{
-    color: $LightPrimary;
-}
-
-.ProfilePopover img {
-    max-width: 60px;
-}
-.ProfilePopover p {
-    margin: 0 0 5px 0;
-    user-select: none;
-}
-
-
-
-.NavButton {
-    border: none;
-    outline: none;
-}
-
-
-.profile-icon svg {
-    font-size: 30px;
-}
-
-.profile-icon{
-    cursor: pointer;
+    .ProfileInfoContainer img {
+      filter: invert(1);
+    }
+  }
 }

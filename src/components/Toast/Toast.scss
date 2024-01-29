@@ -1,7 +1,5 @@
-// Toast.scss
 .toast {
   position: fixed;
-  // background-color: #333;
   background-color: rgb(232, 232, 232);
   color: #000;
   width: 20%;
@@ -67,27 +65,34 @@
     left: 20px;
   }
 
+  &.centerTop,
+  &.centerBottom {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   &.centerTop {
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
   }
 
   &.centerBottom {
     bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translateY(50%);
+  }
+
+  &.left,
+  &.right {
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   &.left {
-    top: 50%;
     left: 20px;
-    transform: translateY(-50%);
   }
+
   &.right {
-    top: 50%;
     right: 20px;
-    transform: translateY(-50%);
   }
 
   @keyframes loading-bar-animation {

@@ -1,87 +1,104 @@
 @import '../../App.scss';
 
-.wrapper {
-  max-width: 90%;
-  overflow-x: hidden;
-  margin-right: auto;
-  margin-left: auto;
-  margin: 0 auto;
-  color: white;
-}
+.body {
+  .heroSection {
+    width: 100%;
+    background-color: $Accent2;
 
-.productContainer {
-  margin-top: 50px;
-  margin-bottom: 150px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(max-content, 20%));
-  grid-gap: 16px;
-  grid-template-rows: auto;
-}
+    height: 75vh;
 
-
-
-
-
-
-
-.heroSection {
-  width: 100%;
-  background-color: $Accent2;
-
-  height: 70vh;
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-
-    img {
-      width: 55vw;
-      padding: 20px;
-    }
-
-    .text {
-      width: 40vw;
+    .container {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: space-between;
       padding: 20px;
 
-      h1 {
-        font-size: 60px;
-        color: $DarkPrimary;
-        display: flex; // Aligns children inline and on the same baseline
-        align-items: center;
+
+      img {
+        width: 55vw;
+        padding: 20px;
       }
 
-      p {
-        color: $DarkPrimary3;
-        margin-left: 60px;
-      }
+      .text {
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
 
-      button {
-        all: unset;
-        background-color: $Accent;
-        padding: 10px 15px;
-        border-radius: 10px;
-        margin-top: 30px;
-        margin-left: 10vw;
+        .typewriter {
+          display: inline-block;
+          white-space: nowrap; // Keeps the text in a single line
+          overflow: hidden; // Hides the overflow text
+          border-right: 3px solid; // Simulates the typewriter cursor
+          animation: blinkCursor 0.75s steps(40) infinite normal; // Cursor blink effect
+        }
+
+        .arrowBox {
+          display: none;
+          // display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          z-index: 1;
+          top: 350px;
+          height: 250px;
+          width: 120px;
+          background-color: transparent;
+          border: solid $Accent;
+          border-width: 0 0 3px 3px;
+        }
+
+        h1 {
+          font-size: 60px;
+          color: $DarkPrimary;
+          display: flex; // Aligns children inline and on the same baseline
+          align-items: center;
+        }
+
+        p {
+          color: $DarkPrimary3;
+          margin-left: 60px;
+        }
+
+        button {
+          all: unset;
+          background-color: $Accent;
+          padding: 10px 15px;
+          border-radius: 10px;
+          margin-top: 30px;
+          margin-left: 60px;
+        }
       }
     }
+
+
   }
 
-
+  .wrapper {
+    max-width: 90%;
+    overflow-x: hidden;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 0 auto;
+    color: white;
+  }
+  
+  .productContainer {
+    margin-top: 50px;
+    margin-bottom: 150px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 20%));
+    grid-gap: 16px;
+    grid-template-rows: auto;
+  }
+  
 }
 
-.typewriter {
-  display: inline-block;
-  white-space: nowrap; // Keeps the text in a single line
-  overflow: hidden; // Hides the overflow text
-  border-right: 3px solid; // Simulates the typewriter cursor
-  animation: blinkCursor 0.75s steps(40) infinite normal; // Cursor blink effect
-}
+
+
+
 
 @keyframes blinkCursor {
   50% {
@@ -89,19 +106,7 @@
   }
 }
 
-.arrowBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 1;
-  top: 280px;
-  height: 250px;
-  width: 120px; 
-  background-color: transparent;
-  border: solid $Accent;
-  border-width: 0 0 3px 3px;
-}
+
 
 
 

@@ -11,10 +11,11 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
   const [popoverVisible, setPopoverVisible] = useState(isMobile);
   const popoverRef = useRef(null);
   const iconRef = useRef(null);
+
+
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   let email;
   let userName;
-
   if (userInfo) {
     email = userInfo.email;
     userName = userInfo.username;
@@ -22,7 +23,7 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
   const userLoggedIn = !!userInfo;
 
   useEffect(() => {
-    if (!localStorage.getItem("userInfo")) {
+    if (userLoggedIn) {
       setPopoverVisible(false);
   }
     const handleClickOutside = (event) => {
@@ -59,11 +60,16 @@ const ProfileIcon = ({ selectedItem, onItemClick }) => {
 
   const handleLogout = (event) => {
     event.stopPropagation();
-    localStorage.removeItem("userInfo");
-    setTimeout(() => {
-      window.location.href = "/";
-    }, 1500);
-  };
+    setPopoverVisible(!popoverVisible);
+
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+        localStorage.removeItem("userInfo");
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 1500);
+    }
+};
 
   const handleLoginClick = () => {
     window.location.href = '/login';
