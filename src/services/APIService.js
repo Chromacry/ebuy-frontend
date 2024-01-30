@@ -1,5 +1,5 @@
 import {getUserInfoFromLocalStorage } from "../utils/LocalStorageUntil";
-
+//52.149.188.160
 const BASE_URL = 'http://localhost:8080/api';
 class APIService {
     async request(endpoint, method, body = null) {
