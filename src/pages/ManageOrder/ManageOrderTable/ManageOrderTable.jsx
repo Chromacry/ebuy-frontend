@@ -20,6 +20,7 @@ const ManageTable = ({
   handleEdit,
   handleUpdate,
   handleDelete,
+  handleDeleteMessage,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedMember, setSelectedMember] = useState(null);
@@ -119,6 +120,7 @@ const ManageTable = ({
                   <td>
                     <div className="custom-dropdown">
                       <select
+                        data-testid="order_status1" 
                         name="order_status"
                         value={
                           editedOrderStatusMap[data.id] || data.order_status
@@ -142,7 +144,10 @@ const ManageTable = ({
                   <td>
                     <button
                       className="memberDeleteBtn"
-                      onClick={() => handleDelete(data?.id)}
+                      onClick={() =>{
+                        const confirmed = window.confirm(handleDeleteMessage ?? 'No message available');
+                        if (confirmed) handleDelete(data?.id);
+                      } }
                     >
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </button>
