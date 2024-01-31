@@ -95,8 +95,8 @@ bash init-deploy-setup.sh
 ```bash
 docker login -u YourDockerUsername -p YourDockerPassword
 
-docker tag YourDockerUsername/ebuy-frontend-projectx-frontend:latest YourDockerUsername/ebuy-frontend-projectx-frontend:latest
-docker push YourDockerUsername/ebuy-frontend-projectx-frontend:latest
+docker tag YourDockerUsername/projectx-frontend-projectx-frontend:latest YourDockerUsername/projectx-frontend-projectx-frontend:latest
+docker push YourDockerUsername/projectx-frontend-projectx-frontend:latest
 ```
 
 #### Azure Init Deployment Setup
@@ -127,8 +127,8 @@ az aks get-credentials --resource-group "dvopsResourceGroup" --name "dvopsAKSClu
 - Remove all clusters and namspaces and pods, services
 ```bash
 
-kubectl scale deployment projectx-backend-deployment --replicas=0
-kubectl delete deployment projectx-backend-deployment
-kubectl delete service projectx-backend-service
+kubectl scale deployment projectx-frontend-deployment --replicas=0
+kubectl delete deployment projectx-frontend-deployment
+kubectl delete service projectx-frontend-service
 az aks delete --resource-group "dvopsResourceGroup" --name "dvopsAKSCluster" --yes --no-wait
 ```
