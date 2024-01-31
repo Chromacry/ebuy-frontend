@@ -1,18 +1,17 @@
 # syntax=docker/dockerfile:1
 FROM node:20.11.0 as build
 ENV NODE_ENV=development
+ENV VITE_BACKEND_BASE_URL=$VITE_BACKEND_BASE_URL
 WORKDIR /projectx-frontend
 
 # COPY package*.json .
 COPY . .
 
-RUN npm cache clean --force 
-RUN npm verify
 
 RUN npm install
 RUN npm run build
 
-COPY . .
+COPY ./dist .
 
 # RUN npm install -g nodemon
 # RUN npm rebuild bcrypt --build-from-source
