@@ -6,10 +6,13 @@ WORKDIR /projectx-frontend
 # COPY package*.json .
 COPY . .
 
+RUN npm cache clean --force 
+RUN npm verify
+
 RUN npm install
 RUN npm run build
 
-COPY ./dist .
+COPY . .
 
 # RUN npm install -g nodemon
 # RUN npm rebuild bcrypt --build-from-source
