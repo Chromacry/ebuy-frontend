@@ -7,7 +7,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import "./ManageOrderTable.scss";
-import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/utils/ImageEncodingUtil";
 import { rowsPerPage } from "../../../constants/GlobalConstants";
 import { convertToReadableDateTime } from "../../../utils/DateTimeUtil";
 const ManageTable = ({
