@@ -1,0 +1,15 @@
+version: "3.2"
+services:
+  projectx-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKER_IMAGE_REPO}/projectx-frontend-projectx-frontend:latest
+    restart: always
+    ports:
+      - "8080:8080"
+      - "80:80"
+      - "3000:3000"
+    volumes:
+      - ./:/projectx-frontend
+      - ./projectx-frontend/node_modules

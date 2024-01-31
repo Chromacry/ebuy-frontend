@@ -4,7 +4,9 @@ import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import productImage from "../../assets/images/heel.png";
 import { getProductApi } from "../../services/APIs/ProductApi";
+import { getUsersByUserIdApi } from "../../services/APIs/UserApi";
 import {
+  deleteReviewApi,
   getReviewByIdApi,
 } from "../../services/APIs/ReviewApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,23 +18,23 @@ import {
   faTrash,
   faStarHalfAlt,
 } from "@fortawesome/free-solid-svg-icons";
-
 import {
   addItemToCart,
   updateItemQuantityFromCart,
 } from "../../utils/CartUtil";
+import "../ManageProduct/ManageProductTable/ManageProductTable.scss";
 import ReviewsDisplay from "../../components/ReviewsDisplay/ReviewsDisplay";
 const ProductDetails = () => {
-  const token = JSON.parse(localStorage?.getItem("userInfo"))?.accessToken;
   const { productId } = useParams();
   const indexOfLastI = productId.lastIndexOf("i");
   const itemId = productId.substring(indexOfLastI + 1);
+
   const [productQuantity, setProductQuantity] = useState(1);
   const [productDetails, setProductDetails] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [reviews, setReviews] = useState([]);
-  const [updateKey, setUpdateKey] = useState(0);
+  const [updateKey,setUpdateKey] = useState(0);
   const navigate = useNavigate();
   const getProduct = async () => {
     try {
@@ -67,6 +69,7 @@ const ProductDetails = () => {
     }
   };
 
+
   const addProductToCart = async () => {
     const body = {
       product_id: itemId,
@@ -75,10 +78,6 @@ const ProductDetails = () => {
     };
     addItemToCart(body);
   };
-
-  useEffect(() => {
-    getProduct();
-  }, []);
   const navigateToAddReview = () => {
     navigate(
       `/add-review/${convertToSlug(productDetails?.product_name)}-i${
@@ -128,18 +127,18 @@ const ProductDetails = () => {
     ratingAvg = ratingAvg / reviews?.length;
     return ratingAvg;
   };
+  
 
-  let currentUserId = JSON.parse(localStorage?.getItem("userInfo"))?.id;
+  let currentUserId = JSON.parse(localStorage?.getItem('userInfo'))?.id;
 
   useEffect(() => {
     getProduct();
     getReviews();
   }, []);
-
-  useEffect(() => {
-    getReviews();
-  }, [updateKey]);
-
+  useEffect(()=>{
+    getReviews()
+  },[updateKey])
+  console.log(productDetails);
   return (
     <div className="body">
       <Navbar />
@@ -174,7 +173,8 @@ const ProductDetails = () => {
                     productQuantity <= 1 ? 1 : productQuantity - 1
                   )
                 }
-              ></button>
+              >
+              </button>
               <span className="quantity-display">{productQuantity}</span>
               <button
                 className="quantity-action"
@@ -195,25 +195,16 @@ const ProductDetails = () => {
       <div className="review-wrapper">
         <div className="header-container">
           <h1 style={{ color: "white" }}>Reviews</h1>
-          {token != null ? (
-            <button
-              className="addReviewButton"
-              onClick={() => navigateToAddReview()}
-            >
-              Add Review
-            </button>
-          ) : (
-            <></>
-          )}
+          <button
+            className="addReviewButton"
+            onClick={() => navigateToAddReview()}
+          >
+            Add Review
+          </button>
         </div>
 
         <br></br>
-        <ReviewsDisplay
-          reviews={reviews}
-          currentUserId={currentUserId}
-          updateKey={updateKey}
-          setUpdateKey={setUpdateKey}
-        />
+        <ReviewsDisplay reviews={reviews}  currentUserId={currentUserId} updateKey={updateKey} setUpdateKey={setUpdateKey}/>
       </div>
     </div>
   );

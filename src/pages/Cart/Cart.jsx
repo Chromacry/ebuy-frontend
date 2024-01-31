@@ -60,6 +60,7 @@ export default function Cart() {
         cart_items: cart_items,
       };
       setFormkey(Date.now());
+      
       const response = await addOrderApi(body);
       if (response.status === 200) {
         localStorage.removeItem("cart");
@@ -83,44 +84,44 @@ export default function Cart() {
     }
   };
 
-  const updateItem = (data) => {
-    let cartData = [];
+  // const updateItem = (data) => {
+  //   let cartData = [];
   
-    // Check if "cart" key exists in sessionStorage
-    if (sessionStorage.getItem("cart") !== null) {
-      // Retrieve current cart data from sessionStorage
-      cartData = JSON.parse(sessionStorage.getItem("cart"));
+  //   // Check if "cart" key exists in sessionStorage
+  //   if (sessionStorage.getItem("cart") !== null) {
+  //     // Retrieve current cart data from sessionStorage
+  //     cartData = JSON.parse(sessionStorage.getItem("cart"));
   
-      // Check if the product with the given product_id already exists in the cart
-      const existingItemIndex = cartData.findIndex(item => item.product_id === data.product_id);
+  //     // Check if the product with the given product_id already exists in the cart
+  //     const existingItemIndex = cartData.findIndex(item => item.product_id === data.product_id);
   
-      if (existingItemIndex !== -1) {
-        // If the product exists, update the order_quantity
-        cartData[existingItemIndex].order_quantity = data.order_quantity;
-      } else {
-        // If the product does not exist, add it to the cart
-        cartData.push(data);
-      }
-    } else {
-      // If "cart" key does not exist, create a new cart with the given data
-      cartData.push(data);
-    }
+  //     if (existingItemIndex !== -1) {
+  //       // If the product exists, update the order_quantity
+  //       cartData[existingItemIndex].order_quantity = data.order_quantity;
+  //     } else {
+  //       // If the product does not exist, add it to the cart
+  //       cartData.push(data);
+  //     }
+  //   } else {
+  //     // If "cart" key does not exist, create a new cart with the given data
+  //     cartData.push(data);
+  //   }
   
-    // Save the updated cart data to sessionStorage
-    sessionStorage.setItem("cart", JSON.stringify(cartData));
-  };
+  //   // Save the updated cart data to sessionStorage
+  //   sessionStorage.setItem("cart", JSON.stringify(cartData));
+  // };
 
-  const updateOrderQuantity = async () => {
-    const body = {
-      order_quantity: orderQuantity,
-    };
-    updateItem(body);
-  };
+  // const updateOrderQuantity = async () => {
+  //   const body = {
+  //     order_quantity: orderQuantity,
+  //   };
+  //   updateItem(body);
+  // };
 
 
   useEffect(() => {
     cartGetProductById();
-    updateOrderQuantity(orderQuantity);
+    // updateOrderQuantity(orderQuantity);
   }, [orderQuantity]);
 
   return (

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import ConsoleBar from "../../components/ConsoleBar/ConsoleBar"
+import ConsoleBar from "../../Components/ConsoleBar/ConsoleBar"
 import { useNavigate } from 'react-router-dom';
 // import { verifyToken } from '../../Utils/VerifyToken';
 

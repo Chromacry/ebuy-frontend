@@ -7,7 +7,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import "./ManageOrderTable.scss";
-import { imageToBase64 } from "@/utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
 import { rowsPerPage } from "../../../constants/GlobalConstants";
 import { convertToReadableDateTime } from "../../../utils/DateTimeUtil";
 const ManageTable = ({
@@ -20,7 +20,6 @@ const ManageTable = ({
   handleEdit,
   handleUpdate,
   handleDelete,
-  handleDeleteMessage,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedMember, setSelectedMember] = useState(null);
@@ -116,11 +115,10 @@ const ManageTable = ({
                   <td>{data?.username}</td>
                   <td>{convertToReadableDateTime(data?.created_time)}</td>
                   <td>{data?.order_quantity}</td>
-                  <td>{data?.product_price}</td>
+                  <td>{data?.order_quantity}</td>
                   <td>
                     <div className="custom-dropdown">
                       <select
-                        data-testid="order_status1" 
                         name="order_status"
                         value={
                           editedOrderStatusMap[data.id] || data.order_status
@@ -144,10 +142,7 @@ const ManageTable = ({
                   <td>
                     <button
                       className="memberDeleteBtn"
-                      onClick={() =>{
-                        const confirmed = window.confirm(handleDeleteMessage ?? 'No message available');
-                        if (confirmed) handleDelete(data?.id);
-                      } }
+                      onClick={() => handleDelete(data?.id)}
                     >
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </button>

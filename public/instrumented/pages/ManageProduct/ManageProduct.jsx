@@ -1,6 +1,6 @@
 import "./ManageProduct.scss";
 import React, { useState, useEffect, useRef } from "react";
-import { imageToBase64 } from "@/utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
 import ManageTable from "./ManageProductTable/ManageProductTable";
 import {
   addProductApi,

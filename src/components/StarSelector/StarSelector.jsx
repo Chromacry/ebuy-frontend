@@ -11,10 +11,12 @@ const StarSelector = ({rating, setRating,review}) => {
   };
 
   return (
-    <div>
-      {[1, 2, 3, 4, 5].map((star) => (
+    <div className='starSelector'>
+      {[1, 2, 3, 4, 5].map((star,index) => (
         <FontAwesomeIcon
           key={star}
+          id ={`star-${index+1}`}
+          data-testid={`${index+1}`}
           icon={star <= rating ? faStar : faStar}
           color={star <= rating ? 'gold' : 'grey'}
           onClick={() => handleStarClick(star)}

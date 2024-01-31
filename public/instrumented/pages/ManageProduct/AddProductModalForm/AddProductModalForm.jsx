@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { imageToBase64 } from "@/utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./AddProductModalForm.scss";
