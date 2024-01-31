@@ -13,7 +13,7 @@ COPY . .
 RUN npm install
 RUN npm run build
 
-COPY ./dist .
+COPY . .
 
 FROM nginx:alpine
 COPY --from=build /projectx-frontend/dist /usr/share/nginx/html
