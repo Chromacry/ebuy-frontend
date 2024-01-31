@@ -93,6 +93,7 @@ const ReviewCard = ({ review, currentUserId, updateKey, setUpdateKey }) => {
             </button>
             <button
               className="iconButton"
+              data-uitestid='deleteButton'
               data-testid={`trashButton${review.id}`}
               onClick={() => deleteReview(review.id)}
             >
