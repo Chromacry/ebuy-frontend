@@ -22,4 +22,4 @@ COPY nginx/nginx.conf /etc/nginx/conf.d
 # Expose port 80 for HTTP Traffic 
 EXPOSE 80
 # start the nginx web server
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["sh", "-c", "nginx -g 'daemon off;' && npm start"]
