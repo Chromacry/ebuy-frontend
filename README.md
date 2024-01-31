@@ -95,9 +95,8 @@ bash init-deploy-setup.sh
 ```bash
 docker login -u YourDockerUsername -p YourDockerPassword
 
-docker-compose build
-docker tag jenkins-projectx-jenkins:latest YourDockerUsername/jenkins-projectx-jenkins:latest
-docker push YourDockerUsername/jenkins-projectx-jenkins:latest
+docker tag YourDockerUsername/ebuy-frontend-projectx-frontend:latest YourDockerUsername/ebuy-frontend-projectx-frontend:latest
+docker push YourDockerUsername/ebuy-frontend-projectx-frontend:latest
 ```
 
 #### Azure Init Deployment Setup
@@ -116,11 +115,20 @@ kubectl get pods
 kubectl get services
 ```
 
-#### Jenkins Azure login setup
+#### Azure login setup
 - Get your id and replace with Your ID here and copy and paste that into jenkins build command.
 ```bash
 az account show --query "id" --output tsv
 
-az aks get-credentials --resource-group "dvopsResourceGroup" --name "dvopsAKSCluster"
---overwrite-existing --subscription "Your ID here"
+az aks get-credentials --resource-group "dvopsResourceGroup" --name "dvopsAKSCluster" --overwrite-existing --subscription "Your ID here"
+```
+
+#### Clean up azure
+- Remove all clusters and namspaces and pods, services
+```bash
+
+kubectl scale deployment projectx-backend-deployment --replicas=0
+kubectl delete deployment projectx-backend-deployment
+kubectl delete service projectx-backend-service
+az aks delete --resource-group "dvopsResourceGroup" --name "dvopsAKSCluster" --yes --no-wait
 ```
