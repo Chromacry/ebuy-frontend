@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getReviewByReviewIdApi } from "../../services/APIs/ReviewApi";
+import { getReviewByReviewIdApi,updateReviewApi } from "../../services/APIs/ReviewApi";
 const EditReviewForm = () => {
   const navigate = useNavigate();
   const { reviewId } = useParams();
@@ -151,7 +151,7 @@ const EditReviewForm = () => {
         data-testid='reviewContentTextArea'
         required
       ></textarea>
-      <button type="submit" className="submit-button" data-testid='submit-button'>
+      <button type="submit" className="submit-button" data-testid='submit-button' id='edit-review-submit'>
         Submit
       </button>
     </form>

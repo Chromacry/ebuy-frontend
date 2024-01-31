@@ -105,14 +105,6 @@ const AddReviewForm = ()=>{
     setRating={setReview}
     review={review}
   />
-  {/* <h2>Add a headline</h2>
-<textarea
-  name="reviewHeadline"
-  value={review?.reviewHeadline ? review?.reviewHeadline: ""}
-  onChange={handleInputChange}
-  className="headline-area"
-  required
-></textarea> */}
   <h2>Add a photo</h2>
   <div
     className="image-drop-area"

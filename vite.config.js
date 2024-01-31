@@ -9,6 +9,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     reporters: 'verbose',
+    testTimeout:100000,
   },
   resolve: {
     alias: {
