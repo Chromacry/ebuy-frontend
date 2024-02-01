@@ -7,6 +7,7 @@ ENV NODE_ENV=development
 ENV VITE_BACKEND_BASE_URL=$VITE_BACKEND_BASE_URL
 WORKDIR /projectx-frontend
 
+RUN echo ${VITE_BACKEND_BASE_URL}
 # COPY package*.json .
 COPY . .
 
