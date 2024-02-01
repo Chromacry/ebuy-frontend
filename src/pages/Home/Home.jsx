@@ -8,7 +8,7 @@ import SellerRegistration from "../../components/SellerRegistration/SellerRegist
 function Home() {
   const [allProductsData, setAllProductsData] = useState([]);
   const [typewriterText, setTypewriterText] = useState("");
-  const typewriterPart = "ROJECT X"; // Part of the text for the typewriter effect
+  const typewriterPart = "ROJECT X HAHAHAHA"; // Part of the text for the typewriter effect
   const staticPart = "P"; // Static part of the text
   const typingSpeed = 100; // Speed of typing
   const typingPause = 1500; // Pause at the end before restarting
