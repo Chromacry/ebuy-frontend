@@ -66,7 +66,7 @@ const ProductDetails = () => {
   const navigateToAddReview = () => {
     navigate(
       `/add-review/${convertToSlug(productDetails?.product_name)}-i${
-        productDetails?.product_id
+        productDetails?.id
       }`,
       { replace: true }
     );
