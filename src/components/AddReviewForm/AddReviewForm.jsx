@@ -49,19 +49,17 @@ const AddReviewForm = ()=>{
     setReview({ ...review, [name]: value });
   };
   const navigateToProductDetails = () => {
-    navigate(`/product-details/${convertToSlug(productDetails?.product_name)}-i${productDetails?.id}`, { replace: true });
+    navigate(`/product-details/${convertToSlug(productDetails?.product_name)}-i${productDetails?.product_id}`, { replace: true });
   }
   const handleAdd = async (e) => {
     try {
       e.preventDefault();
-      console.log(review);
       const body={
         "reviewContent" : review?.content,
         "reviewRating":review?.rating,
         "productId":review?.productId,
-        "userId": 273,
         "reviewImage":review?.review_image || "image",
-    }
+      }
       const response = await addReviewApi(body);
       if (response?.status === 200) {
         setSuccessMessage(response.message);
