@@ -9,6 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
+    "test:UserSelenium": "vitest ./ui_tests/UserSelenium.test.jsx",
     "start": "vite preview --port 3000 --host"
   },
   "dependencies": {

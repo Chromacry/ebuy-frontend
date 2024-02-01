@@ -22,7 +22,7 @@ const SellerRegistration = () => {
     <div className='sellerRegistrationContainer'>
         <div className="flexContainer">
             <p>Not a seller? Apply to be one Now!!</p>
-            <button onClick={handleApply}>
+            <button id='applyButtonId' onClick={handleApply}>
                 Apply
             </button>
         </div>
