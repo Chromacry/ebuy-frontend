@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       args:
         - VITE_BACKEND_BASE_URL=${VITE_BACKEND_BASE_URL}
-    image: ${DOCKER_IMAGE_REPO}/projectx-frontend-projectx-frontend:latest
+    image: ${DOCKER_IMAGE_REPO}/projectx-frontend-projectx-frontend:v1
     restart: always
     ports:
       - "8080:8080"
