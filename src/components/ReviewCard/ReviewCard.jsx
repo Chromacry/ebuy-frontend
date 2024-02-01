@@ -87,15 +87,15 @@ const ReviewCard = ({ review, currentUserId, updateKey, setUpdateKey }) => {
             <button
               className="iconButton"
               data-testid="editButton"
-              onClick={() => navigateToEditReview(review.id)}
+              onClick={() => navigateToEditReview(review?.review_id)}
             >
               <FontAwesomeIcon icon={faEdit} color="orange" fontSize={27} />
             </button>
             <button
               className="iconButton"
               data-uitestid='deleteButton'
-              data-testid={`trashButton${review.id}`}
-              onClick={() => deleteReview(review.id)}
+              data-testid={`trashButton${review?.review_id}`}
+              onClick={() => deleteReview(review?.review_id)}
             >
               <FontAwesomeIcon icon={faTrash} color="red" fontSize={27} />
             </button>
@@ -104,7 +104,7 @@ const ReviewCard = ({ review, currentUserId, updateKey, setUpdateKey }) => {
           <></>
         )}
       </div>
-      <div className={`rating-container review-${review?.id}`}>
+      <div className={`rating-container review-${review?.review_id}`}>
         {renderStars(review?.rating)}
       </div>
       <h3>
