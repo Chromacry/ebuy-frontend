@@ -49,7 +49,7 @@ const AddReviewForm = ()=>{
     setReview({ ...review, [name]: value });
   };
   const navigateToProductDetails = () => {
-    navigate(`/product-details/${convertToSlug(productDetails?.product_name)}-i${productDetails?.product_id}`, { replace: true });
+    navigate(`/product-details/${convertToSlug(productDetails?.product_name)}-i${productDetails?. id}`, { replace: true });
   }
   const handleAdd = async (e) => {
     try {

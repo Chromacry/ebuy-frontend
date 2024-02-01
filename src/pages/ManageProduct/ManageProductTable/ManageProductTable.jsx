@@ -15,12 +15,11 @@ const ManageTable = ({
   dataCount,
   handlePagination,
   isModalOpen,
-    handleModalIsOpen,
+  handleModalIsOpen,
   isLoading,
   handleEdit,
   handleDelete,
   handleDeleteMessage,
-
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedMember, setSelectedMember] = useState(null);
@@ -92,10 +91,12 @@ const ManageTable = ({
                 </div>
               </td>
             </tr>
+          ) : data.length === 0 ? (
+            <div className="noDatafoundText">
+              <h5>No Product found. Add a new product.</h5>
+            </div>
           ) : (
-            data.length === 0 ? <div className="noDatafoundText"><h5 >No Product found. Add a new product.</h5></div>
-            :
-            data?.map((data) => 
+            data?.map((data) => (
               <tr key={data?.id}>
                 <td>
                   <img
@@ -110,23 +111,27 @@ const ManageTable = ({
                 <td>{convertToReadableDateTime(data?.created_time)}</td>
                 <td>
                   <button
+                    data-testid="editButton"
                     className="memberEditBtn"
                     onClick={() => handleOpenEditModal(data)}
                   >
                     <FontAwesomeIcon icon={faPen} />
                   </button>
                   <button
+                    data-testid="deleteButton"
                     className="memberDeleteBtn"
-                    onClick={() =>{
-                      const confirmed = window.confirm(handleDeleteMessage ?? 'No message available');
+                    onClick={() => {
+                      const confirmed = window.confirm(
+                        handleDeleteMessage ?? "No message available"
+                      );
                       if (confirmed) handleDelete(data?.id);
-                    } }
+                    }}
                   >
                     <FontAwesomeIcon icon={faTrashAlt} />
                   </button>
                 </td>
               </tr>
-            )
+            ))
           )}
         </tbody>
       </table>
@@ -135,7 +140,10 @@ const ManageTable = ({
           <li
             key={number}
             id={number}
-            onClick={() => { setCurrentPage(number); handlePagination(number); }}
+            onClick={() => {
+              setCurrentPage(number);
+              handlePagination(number);
+            }}
             className={currentPage === number ? "current" : ""}
           >
             {number}
@@ -162,6 +170,7 @@ const ManageTable = ({
               <div className="inputField">
                 <label>Product Name</label>
                 <input
+                  data-testid="ProductNameTest"
                   name="product_name"
                   type="text"
                   value={selectedMember ? selectedMember?.product_name : ""}
@@ -172,9 +181,12 @@ const ManageTable = ({
                 {" "}
                 <label>Description</label>
                 <textarea
+                  data-testid="ProductDescriptionTest"
                   name="product_description"
                   type="text"
-                  value={selectedMember ? selectedMember?.product_description : ""}
+                  value={
+                    selectedMember ? selectedMember?.product_description : ""
+                  }
                   placeholder="2200111A"
                   onChange={(e) => handleInputChange(e, "product_description")}
                 />
