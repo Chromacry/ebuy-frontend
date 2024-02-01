@@ -63,6 +63,7 @@ export default function Cart() {
       
       const response = await addOrderApi(body);
       if (response.status === 200) {
+        localStorage.setItem("lastTrackingNumber", response.data.tracking_number);
         localStorage.removeItem("cart");
         setSuccessMessage(response.message);
         setTimeout(() => {
