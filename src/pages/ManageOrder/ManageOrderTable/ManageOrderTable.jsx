@@ -120,7 +120,7 @@ const ManageTable = ({
                   <td>
                     <div className="custom-dropdown">
                       <select
-                        data-testid="order_status1" 
+                        data-testid="order_status1"
                         name="order_status"
                         value={
                           editedOrderStatusMap[data.id] || data.order_status
@@ -130,9 +130,8 @@ const ManageTable = ({
                             ...prev,
                             [data.id]: e.target.value,
                           }));
-                          handleUpdate(e,data.id);
+                          handleUpdate(e, data.id);
                         }}
-
                       >
                         <option value="Paid">Paid</option>
                         <option value="Delivered">Delivered</option>
@@ -143,11 +142,14 @@ const ManageTable = ({
                   <td>{data?.tracking_number}</td>
                   <td>
                     <button
+                      data-testid="deleteButton"
                       className="memberDeleteBtn"
-                      onClick={() =>{
-                        const confirmed = window.confirm(handleDeleteMessage ?? 'No message available');
+                      onClick={() => {
+                        const confirmed = window.confirm(
+                          handleDeleteMessage ?? "No message available"
+                        );
                         if (confirmed) handleDelete(data?.id);
-                      } }
+                      }}
                     >
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </button>
