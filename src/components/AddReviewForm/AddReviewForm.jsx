@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import StarSelector from "../StarSelector/StarSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/utils/ImageEncodingUtil";
 import { addReviewApi } from "../../services/APIs/ReviewApi";
-import { convertToSlug } from "../../utils/URLUtil";
+import { convertToSlug } from "@/utils/URLUtil";
 import { useNavigate,useParams } from "react-router";
 import { getProductApi } from "../../services/APIs/ProductApi";
 const AddReviewForm = ()=>{
