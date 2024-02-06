@@ -3,7 +3,7 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 const ReviewsDisplay = ({ reviews,updateKey,setUpdateKey, currentUserId }) => {
   return (
     <>
-      {reviews.map((review) => (
+      {reviews?.map((review) => (
         <ReviewCard
           review={review}
           currentUserId={currentUserId}
