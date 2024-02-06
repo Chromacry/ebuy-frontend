@@ -1,6 +1,5 @@
 import {getUserInfoFromLocalStorage } from "../utils/LocalStorageUntil";
-
-const BASE_URL = `http://${import.meta.env.VITE_BACKEND_BASE_URL }/api`|| 'http://localhost:8080/api';
+const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL ?? 'http://localhost:8080/api';
 
 class APIService {
     async request(endpoint, method, body = null) {

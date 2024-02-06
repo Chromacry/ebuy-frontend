@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import StarSelector from "../StarSelector/StarSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/utils/ImageEncodingUtil";
 import { addReviewApi } from "../../services/APIs/ReviewApi";
-import { convertToSlug } from "../../utils/URLUtil";
+import { convertToSlug } from "@/utils/URLUtil";
 import { useNavigate,useParams } from "react-router";
 import { getProductApi } from "../../services/APIs/ProductApi";
 const AddReviewForm = ()=>{
@@ -49,19 +49,17 @@ const AddReviewForm = ()=>{
     setReview({ ...review, [name]: value });
   };
   const navigateToProductDetails = () => {
-    navigate(`/product-details/${convertToSlug(productDetails?.product_name)}-i${productDetails?.id}`, { replace: true });
+    navigate(`/product-details/${convertToSlug(productDetails?.product_name)}-i${productDetails?. id}`, { replace: true });
   }
   const handleAdd = async (e) => {
     try {
       e.preventDefault();
-      console.log(review);
       const body={
         "reviewContent" : review?.content,
         "reviewRating":review?.rating,
         "productId":review?.productId,
-        "userId": 273,
         "reviewImage":review?.review_image || "image",
-    }
+      }
       const response = await addReviewApi(body);
       if (response?.status === 200) {
         setSuccessMessage(response.message);

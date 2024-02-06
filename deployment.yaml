@@ -15,24 +15,24 @@ spec: # defines the desired state of the Deployment.
       containers:
       - name: projectx-frontend-container
         image: 2204412g/projectx-frontend-projectx-frontend:latest
-        ports:
-        - containerPort: 80 # specifies the port that the application listens on
         resources:
           limits:
             memory: '128Mi'
             cpu: '200m'
-        livenessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-          initialDelaySeconds: 15
-          timeoutSeconds: 2
-          periodSeconds: 5
-          failureThreshold: 1
-        readinessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-          initialDelaySeconds: 15
-          periodSeconds: 5
-          failureThreshold: 1
+        ports:
+        - containerPort: 3000 # specifies the port that the application listens on
+        # livenessProbe:
+        #   httpGet:
+        #     path: /index.html
+        #     port: 80
+        #   initialDelaySeconds: 15
+        #   timeoutSeconds: 2
+        #   periodSeconds: 5
+        #   failureThreshold: 1
+        # readinessProbe:
+        #   httpGet:
+        #     path: /index.html
+        #     port: 80
+        #   initialDelaySeconds: 15
+        #   periodSeconds: 5
+        #   failureThreshold: 1

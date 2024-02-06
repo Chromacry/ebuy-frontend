@@ -66,7 +66,7 @@ function ManageProduct() {
       setFormkey(Date.now());
       const response = await addProductApi(body);
       if (response.status === 200) {
-        const productName = formData.set("product_name", "");
+        formData.set("product_name", "");
         formData.set("product_description", "");
         formData.set("product_quantity", "");
         formData.set("product_image", "");

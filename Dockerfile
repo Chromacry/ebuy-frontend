@@ -1,24 +1,26 @@
 # syntax=docker/dockerfile:1
 FROM node:20.11.0 as build
+
+ARG VITE_BACKEND_BASE_URL
+ARG PM2_PUBLIC_KEY
+ARG PM2_SECRET_KEY
+
 ENV NODE_ENV=development
+ENV VITE_BACKEND_BASE_URL=$VITE_BACKEND_BASE_URL
 WORKDIR /projectx-frontend
 
+RUN echo ${VITE_BACKEND_BASE_URL}
 # COPY package*.json .
 COPY . .
 
 RUN npm install
 RUN npm run build
 
-COPY ./dist .
+RUN npm install pm2 -g
+ENV PM2_PUBLIC_KEY ${PM2_PUBLIC_KEY}
+ENV PM2_SECRET_KEY ${PM2_SECRET_KEY}
 
-# RUN npm install -g nodemon
-# RUN npm rebuild bcrypt --build-from-source
+EXPOSE 3000
+EXPOSE 8080
 
-FROM nginx:alpine
-COPY --from=build /projectx-frontend/dist /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-# Expose port 80 for HTTP Traffic 
-EXPOSE 80
-# start the nginx web server
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["pm2-runtime", "ecosystem.config.js"]

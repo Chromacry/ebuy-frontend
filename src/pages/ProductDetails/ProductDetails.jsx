@@ -4,9 +4,7 @@ import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import productImage from "../../assets/images/heel.png";
 import { getProductApi } from "../../services/APIs/ProductApi";
-import {
-  getReviewByIdApi,
-} from "../../services/APIs/ReviewApi";
+import { getReviewByIdApi } from "../../services/APIs/ReviewApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { convertToSlug } from "../../utils/URLUtil";
@@ -39,8 +37,10 @@ const ProductDetails = () => {
       const response = await getProductApi(itemId);
       if (response?.status === 200) {
         setSuccessMessage(response.message);
+
         const resApiData = response.data;
         setProductDetails(resApiData[0]);
+        setReviews(resApiData);
         setIsLoading(false);
       } else {
         setErrorMessage(response.message);
@@ -48,22 +48,6 @@ const ProductDetails = () => {
     } catch (error) {
       console.error("Error retrieving product:", error);
       setErrorMessage("An error occurred while retrieving the product.");
-    }
-  };
-  const getReviews = async () => {
-    try {
-      const response = await getReviewByIdApi(itemId);
-      if (response?.status === 200) {
-        setSuccessMessage(response.message);
-        console.log(response);
-        const resApiData = response.data;
-        setReviews(resApiData);
-      } else {
-        setErrorMessage(response.message);
-      }
-    } catch (error) {
-      console.error("Error retrieving review:", error);
-      setErrorMessage("An error occurred while retrieving the review.");
     }
   };
 
@@ -133,11 +117,6 @@ const ProductDetails = () => {
 
   useEffect(() => {
     getProduct();
-    getReviews();
-  }, []);
-
-  useEffect(() => {
-    getReviews();
   }, [updateKey]);
 
   return (

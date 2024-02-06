@@ -113,12 +113,14 @@ const ConsoleBar = () => {
             <FontAwesomeIcon icon={faChartBar} /> {showText && "Dashboard"}
           </li>
           <li
+          data-testid = "ProductsTest"
             className={selectedItem === "Products" ? "selected" : ""}
             onClick={() => handleItemClick("Products")}
           >
             <FontAwesomeIcon icon={faUser} /> {showText && "Products"}
           </li>
           <li
+                    data-testid = "OrdersTest"
             className={selectedItem === "Orders" ? "selected" : ""}
             onClick={() => handleItemClick("Orders")}
           >

@@ -3,10 +3,11 @@ kind: Service
 metadata: # metadata about the service
   name: projectx-frontend-service
 spec: # defines the desired state of the Service
+  type: LoadBalancer # expose externally using a public IP
   selector:
     app: projectx-frontend
   ports: # defines how the service should handle incoming traffic and which ports to expose
-    - protocol: TCP # standard protocol for most web applications
-      port: 80 # exposes port 80, which is the default HTTP port
-      targetPort: 80 # specifies the port that the application listens on
-  type: LoadBalancer # expose externally using a public IP
+    - port: 3050 # exposes port 80, which is the default HTTP port
+      targetPort: 3000 # specifies the port that the application listens on
+      protocol: TCP # standard protocol for most web applications
+      # nodePort: 31000
