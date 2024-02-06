@@ -156,7 +156,7 @@ az group delete --name "dvopsResourceGroup" --yes --no-wait
 - Install Terraform plugin maybe?
 - Add new build step into your Jenkins job (Execute Windows Batch Command)
 - Add commands below into build step
-cd projectx-backend-terraform
+cd projectx-frontend-terraform
 terraform init
 terraform plan
 terraform apply -auto-approve
