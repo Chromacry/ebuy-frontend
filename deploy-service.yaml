@@ -7,7 +7,7 @@ spec: # defines the desired state of the Service
   selector:
     app: projectx-frontend
   ports: # defines how the service should handle incoming traffic and which ports to expose
-    - port: 3050 # exposes port 80, which is the default HTTP port
-      targetPort: 3000 # specifies the port that the application listens on
+    - port: 80 # exposes port 80, which is the default HTTP port
+      targetPort: 8080 # specifies the port that the application listens on
       protocol: TCP # standard protocol for most web applications
       # nodePort: 31000
