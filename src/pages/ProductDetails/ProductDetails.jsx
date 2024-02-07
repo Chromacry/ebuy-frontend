@@ -65,7 +65,7 @@ const ProductDetails = () => {
   useEffect(() => {
     getProduct();
     getProductReviews();
-  }, []);
+  }, [updateKey]);
   const navigateToAddReview = () => {
     navigate(
       `/add-review/${convertToSlug(productDetails?.product_name)}-i${
