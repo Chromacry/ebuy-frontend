@@ -14,7 +14,7 @@ spec: # defines the desired state of the Deployment.
     spec: # specifies the container(s) to run
       containers:
       - name: projectx-frontend-container
-        image: onyxxx/projectx-frontend-projectx-frontend:v20
+        image: onyxxx/projectx-frontend-projectx-frontend:v21
         resources:
           limits:
             memory: '128Mi'

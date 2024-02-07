@@ -179,7 +179,7 @@ const ProductDetails = () => {
       </div>
       <div className="review-wrapper">
         <div className="header-container">
-          <h1 style={{ color: "white" }}>Reviews</h1>
+          <h1 style={{ color: "white" }}>Reviews test</h1>
           {token != null ? (
             <button
               className="addReviewButton"
