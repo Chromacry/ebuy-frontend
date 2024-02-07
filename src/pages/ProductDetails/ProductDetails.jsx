@@ -50,6 +50,7 @@ const ProductDetails = () => {
   const getProductReviews = async ()=>{
     getReviewByIdApi(itemId).then((response)=>{
       const resApiData = response?.data;
+      console.log('new reviews');
       setReviews(resApiData);
     })
   }
