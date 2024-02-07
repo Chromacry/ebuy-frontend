@@ -37,11 +37,8 @@ const ProductDetails = () => {
       const response = await getProductApi(itemId);
       if (response?.status === 200) {
         setSuccessMessage(response.message);
-
         const resApiData = response.data;
         setProductDetails(resApiData[0]);
-        setReviews(resApiData);
-        setIsLoading(false);
       } else {
         setErrorMessage(response.message);
       }
@@ -50,7 +47,12 @@ const ProductDetails = () => {
       setErrorMessage("An error occurred while retrieving the product.");
     }
   };
-
+  const getProductReviews = async ()=>{
+    getReviewByIdApi(itemId).then((response)=>{
+      const resApiData = response?.data;
+      setReviews(resApiData);
+    })
+  }
   const addProductToCart = async () => {
     const body = {
       product_id: itemId,
@@ -62,6 +64,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     getProduct();
+    getProductReviews();
   }, []);
   const navigateToAddReview = () => {
     navigate(
