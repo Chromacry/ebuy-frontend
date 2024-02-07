@@ -24,14 +24,7 @@ const Dashboard = () => {
         <button onClick={DeleteAccount}>Delete Account</button>
       </div>
       <div className="GridItem">Test</div>
-      <div className="GridItem">
-        TEST 2 elit. Maiores modi iusto deleniti officiis, fuga beatae adipisci
-        porro eveniet culpa officia, sit minus incidunt voluptatibus fugit
-        doloribus facilis et recusandae quam. Lorem ipsum dolosit, amet
-        consectetur adipisicing elit. Blanditiis similique commodi illo placeat
-        magnam,od magni quas nisi quia, consequuntur ipsam sint sequi quasi.
-        Repellat quae sed molestias dolor cum possimus suscipit optio ducimus
-        cumque quidem!Lorem
+      <div className="GridItem">TEST 3
       </div>
       <div className="GridItem">
         Dashboard Component Content Lorem ipsum, dolor sit amet consectetur
