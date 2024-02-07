@@ -115,19 +115,11 @@ const ProductDetails = () => {
 
   let currentUserId = JSON.parse(localStorage?.getItem("userInfo"))?.id;
 
-  const getReviews = () => {
-    getReviewByIdApi(productDetails?.id).then((response) => {
-      console.log(response.data);
-      setReviews(response?.data);
-    });
-  };
 
   useEffect(() => {
     getProduct();
   }, [updateKey]);
-  useEffect(() => {
-    getReviews();
-  }, [productDetails]);
+
   console.log(productDetails);
   return (
     <div className="body">
