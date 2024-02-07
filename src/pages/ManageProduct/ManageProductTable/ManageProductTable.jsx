@@ -235,6 +235,7 @@ const ManageTable = ({
 
                 <input
                   type="file"
+                  data-testid="product_image_edit"
                   name="product_image"
                   onChange={handleFileChange}
                   ref={fileInputRef}
