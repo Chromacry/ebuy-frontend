@@ -115,10 +115,12 @@ const ProductDetails = () => {
 
   let currentUserId = JSON.parse(localStorage?.getItem("userInfo"))?.id;
 
+
   useEffect(() => {
     getProduct();
   }, [updateKey]);
 
+  console.log(productDetails);
   return (
     <div className="body">
       <Navbar />

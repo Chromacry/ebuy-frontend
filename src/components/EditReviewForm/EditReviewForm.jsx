@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import StarSelector from "../../components/StarSelector/StarSelector";
-import { imageToBase64 } from "@/Utils/ImageEncodingUtil";
+import { imageToBase64 } from "@/utils/ImageEncodingUtil";
 import { convertToSlug } from "../../utils/URLUtil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";

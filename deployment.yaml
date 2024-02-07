@@ -6,33 +6,33 @@ spec: # defines the desired state of the Deployment.
   replicas: 1 # specifies how many identical replicas (pods) of the application should be maintained, in this case, 2, which means Kubernetes will ensure that two pods running the specified container are always available
   selector:
     matchLabels:
-      app: projectx
+      app: projectx-frontend
   template: # defines the pod template used by the Deployment. It specifies the pod's metadata and the container(s) to run.
     metadata: #specifies the pod's metadata
       labels:
-        app: projectx
+        app: projectx-frontend
     spec: # specifies the container(s) to run
       containers:
-      - name: projectx-container
-        image: 2204412g/projectx-frontend-projectx-frontend:v1
-        ports:
-        - containerPort: 80 # specifies the port that the application listens on
+      - name: projectx-frontend-container
+        image: 2204412g/projectx-frontend-projectx-frontend:latest
         resources:
           limits:
             memory: '128Mi'
             cpu: '200m'
-        livenessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-          initialDelaySeconds: 15
-          timeoutSeconds: 2
-          periodSeconds: 5
-          failureThreshold: 1
-        readinessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-          initialDelaySeconds: 15
-          periodSeconds: 5
-          failureThreshold: 1
+        ports:
+        - containerPort: 3000 # specifies the port that the application listens on
+        # livenessProbe:
+        #   httpGet:
+        #     path: /index.html
+        #     port: 80
+        #   initialDelaySeconds: 15
+        #   timeoutSeconds: 2
+        #   periodSeconds: 5
+        #   failureThreshold: 1
+        # readinessProbe:
+        #   httpGet:
+        #     path: /index.html
+        #     port: 80
+        #   initialDelaySeconds: 15
+        #   periodSeconds: 5
+        #   failureThreshold: 1

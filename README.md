@@ -132,3 +132,33 @@ kubectl delete deployment projectx-frontend-deployment
 kubectl delete service projectx-frontend-service
 az aks delete --resource-group "dvopsResourceGroup" --name "dvopsAKSCluster" --yes --no-wait
 ```
+
+##### Terraform
+- Get your id and replace with Your ID here and copy and paste that into vscode terminal.
+```bash
+az account show --query "id" --output tsv
+
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/"YOUR ID HERE"/resourceGroups/dvopsResourceGroup
+```
+- Copy appId and password into main.tf client_id and password.
+
+output:
+{
+    "appId": "copy to main.tf client_id",       
+    "displayName": "azure-cli-2024-01-31-10-19-57",        
+    "password": "copy to main.tf password",
+    "tenant": "04821f8b-7b54-46d0-8a44-52b4dedda76f" 
+}
+- Delete Azure Resource Group
+```bash
+az group delete --name "dvopsResourceGroup" --yes --no-wait
+```
+- Install Terraform plugin maybe?
+- Add new build step into your Jenkins job (Execute Windows Batch Command)
+- Add commands below into build step
+cd projectx-frontend-terraform
+terraform init
+terraform plan
+terraform apply -auto-approve
+cd ..
+- Drag new build step above `az aks get-credentials` build step
