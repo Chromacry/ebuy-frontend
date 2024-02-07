@@ -47,13 +47,23 @@ const ProductDetails = () => {
       setErrorMessage("An error occurred while retrieving the product.");
     }
   };
-  const getProductReviews = async ()=>{
-    getReviewByIdApi(itemId).then((response)=>{
-      const resApiData = response?.data;
-      console.log('new reviews');
-      setReviews(resApiData);
-    })
-  }
+  const getProductReviews = async () => {
+    try {
+      console.log('ran');
+      const response = await getReviewByIdApi(itemId);
+      console.log(response);
+      if (response?.status === 200) {
+        setSuccessMessage(response.message);
+        const resApiData = response.data;
+        setReviews(resApiData);
+      } else {
+        setErrorMessage(response.message);
+      }
+    } catch (error) {
+      console.error("Error retrieving product:", error);
+      setErrorMessage("An error occurred while retrieving the product.");
+    }
+  };
   const addProductToCart = async () => {
     const body = {
       product_id: itemId,
